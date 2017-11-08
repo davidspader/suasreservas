@@ -1,0 +1,26 @@
+.navbar-inverse
+{
+    background:#00796B;
+    border-bottom-color: #004D40;
+}
+.navbar-inverse .navbar-nav>li>a,.navbar-inverse .navbar-brand,.navbar-inverse .navbar-nav>.dropdown>a .caret
+{
+    color: #fff;
+}
+
+.nav-pills>li>a
+{
+    color: #00796b;
+}
+
+.nav>li>a:hover, .nav>li>a:focus
+{
+    background-color: #00796b;
+    color: white;
+}
+
+thead{
+    background-color: #00796b;
+    color: white;
+    font-weight: bold;
+}
