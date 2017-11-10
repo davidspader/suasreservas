@@ -14,7 +14,7 @@ $intermediadores = IntermediadorJuridico::listarIntermediador(unserialize($_SESS
 <div class="panel panel-default" id="formReserva">
         <div class="panel-heading"><strong>Editar reserva:</strong></div>
         <div class="panel-body">
-            <form action="control/reservaController.php" method="post" role="form" id="editarReserva">
+            <form action="control/reservaController.php" method="post" role="form" id="editarReserva" class="formularioReserva">
                 <input type="hidden" name="req" value="editarReserva">
                 <input type="hidden" name="validacao" value="validacao">
                 <input type="hidden" name="id" value="<?php echo $_POST['id'];?>">
@@ -82,6 +82,6 @@ $intermediadores = IntermediadorJuridico::listarIntermediador(unserialize($_SESS
             </form>
         </div>
     </div>
-<script src="js/js.page-reserva-editar.js"></script>
+<script src="js/validacao-formulario/js.validar-formulario-reserva.js"></script>
 
 

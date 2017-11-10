@@ -59,7 +59,7 @@ $selecionada = isset($paginas[$pagina]) ? $paginas[$pagina] : $paginas['reservas
         <link href="css/padrao-estilo.css" rel="stylesheet">
         <script src="bootstrap-jquery/jquery/jquery.min.js"></script>
         <script src="bootstrap-jquery/bootstrap/js/bootstrap.min.js"></script>
-        <script src="js/js.formulario-hide.js"></script>
+        <script src="js/js.funcoes-padrao.js"></script>
         <script src="bootstrap-jquery/jquery/jquery.maskedinput.js"></script>
         <script src="bootstrap-jquery/jquery/jquery.validate.js"></script>
         <script src="bootstrap-jquery/jquery/jquery.maskMoney.js" type="text/javascript"></script>
@@ -113,4 +113,5 @@ $selecionada = isset($paginas[$pagina]) ? $paginas[$pagina] : $paginas['reservas
             <hr>
         </div>
     </body>
+    <script src="js/js.mascaras.js"></script>
 </html>

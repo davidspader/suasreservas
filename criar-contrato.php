@@ -6,7 +6,7 @@ if (!isset($_SESSION['logado']) || !isset($_POST['id'])) {
 <div class="panel panel-default" id="formLocatario">
     <div class="panel-heading"><strong>Preencha os campos sobre o locatário para criar o contrato:</strong></div>
     <div class="panel-body">
-        <form class="form" role="form" method="post" action="control/contratoController.php" id="formularioLocatario">
+        <form class="form formularioLocatario" role="form" method="post" action="control/contratoController.php">
             <input type="hidden" name="id" value="<?php echo $_POST['id']; ?>">
             <input type="hidden" name="idImovel" value="<?php echo $_POST['idImovel']; ?>">
             <input type="hidden" name="req" value="criarContrato">
@@ -17,7 +17,7 @@ if (!isset($_SESSION['logado']) || !isset($_POST['id'])) {
             </div>
             <div class="form-group row">
                 <div class="col-md-3">
-                    <input type="text" id="cpfLocatario" name="cpfLocatario" placeholder="CPF" class="form-control">
+                    <input type="text" id="cpfLocatario" name="cpfLocatario" placeholder="CPF" class="form-control cpf">
                 </div>
                 <div class="">
                 </div>
@@ -25,10 +25,10 @@ if (!isset($_SESSION['logado']) || !isset($_POST['id'])) {
                     <input type="text" name="emailLocatario" id="emailLocatario" placeholder="E-mail" class="form-control">
                 </div>
                 <div class="col-md-3">
-                    <input type="text" name="telefoneCelularLocatario" id="telefoneCelularLocatario" placeholder="Telefone celular" class="form-control telefoneCelular">
+                    <input type="text" name="telefoneCelularLocatario" id="telefoneCelularLocatario" placeholder="Telefone celular" class="form-control celular">
                 </div>
                 <div class="col-md-3">
-                    <input type="text" id="telefoneFixoLocatario" name="telefoneFixoLocatario" placeholder="Telefone fixo" class="form-control telefoneFixo">
+                    <input type="text" id="telefoneFixoLocatario" name="telefoneFixoLocatario" placeholder="Telefone fixo" class="form-control fixo">
                 </div>
             </div>
             <div class="form-group row">
@@ -39,4 +39,4 @@ if (!isset($_SESSION['logado']) || !isset($_POST['id'])) {
         </form>
     </div>
 </div>
-<script src="js/js.page-criar-contrato.js"></script>
+<script src="js/validacao-formulario/js.validar-formulario-locatario.js"></script>

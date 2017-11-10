@@ -41,4 +41,5 @@ $selecionada = isset($paginas[$pagina]) ? $paginas[$pagina] : $paginas['home'];
     <body>
         <div id="conteudo"><?php include_once($selecionada['arquivo']); ?></div>
     </body>
+    <script src="js/js.mascaras.js"></script>    
 </html>

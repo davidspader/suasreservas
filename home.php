@@ -12,7 +12,6 @@
             <a class="navbar-brand" href="index.php"><img src="css/imagens/logo/logo-verde.png"></a>
         </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -21,7 +20,7 @@
                         <li>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form class="form" role="form" method="post" action="control/cadastroController.php" id="formularioCadastro">
+                                    <form class="form formularioCadastro" role="form" method="post" action="control/cadastroController.php">
                                         <div class="form-group">
                                             <label class="sr-only" for="nomeCadastro">Nome Completo</label>
                                             <input type="text" class="form-control" id="nomeCadastro" name="nomeCadastro" placeholder="Nome completo" required>
@@ -32,7 +31,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="sr-only" for="cpfCadastro">CPF</label>
-                                            <input type="text" class="form-control" id="cpfCadastro" name="cpfCadastro" placeholder="CPF" required>
+                                            <input type="text" class="form-control cpf" id="cpfCadastro" name="cpfCadastro" placeholder="CPF" required>
                                         </div>
                                         <div class="form-group">
                                             <label class="sr-only" for="senhaCadastro">Senha</label>
@@ -40,7 +39,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="sr-only" for="telefoneCadastro">Telefone celular</label>
-                                            <input type="text" class="form-control" id="telefoneCadastro" name="telefoneCadastro" placeholder="Telefone celular" required>
+                                            <input type="text" class="form-control celular" id="telefoneCadastro" name="telefoneCadastro" placeholder="Telefone celular" required>
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" class="btn botao-padrao btn-block" id="botaoCadastro">Cadastrar</button>
@@ -57,7 +56,7 @@
                         <li>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form class="form" role="form" method="post" action="control/loginController.php" id="formularioLogin">
+                                    <form class="form formularioLogin" role="form" method="post" action="control/loginController.php" id="formularioLogin">
                                         <input type="hidden" name="req" value="entrar">
                                         <div class="form-group">
                                             <label class="sr-only" for="emailLogin">E-mail</label>
@@ -142,5 +141,6 @@
     </div>
 </footer>
 </div>
-<script src="js/js.page-home.js"></script>    
+<script src="js/validacao-formulario/js.validar-formulario-cadastro.js"></script>    
+<script src="js/validacao-formulario/js.validar-formulario-login.js"></script>    
     

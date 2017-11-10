@@ -12,27 +12,26 @@ if (!isset($_SESSION['logado'])) {
                     <button type="button" class="btn botao-padrao btn-block botaoCancelar" id="cancelarCadastrarIntermediadorBotao">Cancelar cadastro</button>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="checkbox-inline">
-                    <label><input type="checkbox" id="fisica" checked><strong>Pessoa física</strong></label>
-                </div>
-                <div class="checkbox-inline">
-                    <label><input type="checkbox" id="juridica"><strong>Pessoa jurídica</strong></label>
-                </div>
-            </div>
-            <form class="form" role="form" method="post" action="control/intermediadorController.php" id="formularioCadastroIntermediador">
+            <form class="form formularioIntermediador" role="form" method="post" action="control/intermediadorController.php" id="formularioCadastroIntermediador">
                 <input type="hidden" name="req" value="cadastrarIntermediador">
                 <input type="hidden" name="validacao" value="validacao">
-                <input type="hidden" name="tipo" id="tipoIntermediador" value="1">
-                <div class="form-group row">
-                    <div class="col-md-3">
-                        <input type="text" id="nomeIntermediador" name="nomeIntermediador" placeholder="*Nome" class="form-control">
+                <div class="form-group">
+                    <div class="radio-inline">
+                        <label><input type="radio" name="tipoIntermediador" value="1" checked class="radioFisica"><strong>Pessoa física</strong></label>
+                    </div>
+                    <div class="radio-inline">
+                        <label><input type="radio" name="tipoIntermediador" value="2" class="radioJuridica"><strong>Pessoa jurídica</strong></label>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-3">
-                        <input type="text" id="cnpjIntermediador" name="cnpjIntermediador" placeholder="CNPJ" class="form-control">
-                        <input type="text" id="cpfIntermediador" name="cpfIntermediador" placeholder="CPF" class="form-control">
+                        <input type="text" id="nomeIntermediador" name="nomeIntermediador" placeholder="*Nome" class="form-control nomeIntermediador">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <input type="text" id="cnpjIntermediador" name="cnpjIntermediador" placeholder="CNPJ" class="form-control cnpj campoCnpj">
+                        <input type="text" id="cpfIntermediador" name="cpfIntermediador" placeholder="CPF" class="form-control cpf campoCpf">
                     </div>
                     <div class="">
                     </div>
@@ -40,10 +39,10 @@ if (!isset($_SESSION['logado'])) {
                         <input type="text" name="emailIntermediador" id="emailIntermediador" placeholder="E-mail" class="form-control">
                     </div>
                     <div class="col-md-3">
-                        <input type="text" name="telefoneCelularIntermediador" id="telefoneCelularIntermediador" placeholder="Telefone celular" class="form-control telefoneCelular">
+                        <input type="text" name="telefoneCelularIntermediador" id="telefoneCelularIntermediador" placeholder="Telefone celular" class="form-control celular">
                     </div>
                     <div class="col-md-3">
-                        <input type="text" id="telefoneFixoIntermediador" name="telefoneFixoIntermediador" placeholder="Telefone fixo" class="form-control telefoneFixo">
+                        <input type="text" id="telefoneFixoIntermediador" name="telefoneFixoIntermediador" placeholder="Telefone fixo" class="form-control fixo">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -93,5 +92,5 @@ if (!isset($_SESSION['logado'])) {
         </div>
     </div>
 </div>
-<script src="js/js.page-intermediador.js"></script>
+<script src="js/validacao-formulario/js.validar-formulario-intermediador.js"></script>
 

@@ -10,7 +10,7 @@ $_SESSION['erros'] = array();
 if (isset($_REQUEST['req'])) {
     if($_REQUEST['req'] == 'cadastrarIntermediador' || $_REQUEST['req'] == 'editarIntermediador'){
         if(filter_input(INPUT_POST, 'validacao') == "validacao"){
-            if($_POST['cpfIntermediador'] != "false" && $_POST['tipo'] != 1 || $_POST['cnpjIntermediador'] != "false" && $_POST['tipo'] != 2){
+            if($_POST['tipoIntermediador'] != 1 && $_POST['tipoIntermediador'] != 2){
                 $_SESSION['tituloErro'] = "Erros ocorreram no seu formulário!";
                 array_push($_SESSION['erros'], "Houve um erro na válidação.");
                 header("Location: ../dashboard.php?pagina=intermediadores");
@@ -19,7 +19,7 @@ if (isset($_REQUEST['req'])) {
             
             $usuario = unserialize($_SESSION['logado'])->getId();
 
-            if($_POST['tipo'] == 1){
+            if($_POST['tipoIntermediador'] == 1){
                 $intermediador = new IntermediadorFisico(null, $_POST['nomeIntermediador'],$_POST['emailIntermediador'],$_POST['cpfIntermediador'],$_POST['telefoneCelularIntermediador'],$_POST['telefoneFixoIntermediador'],$usuario);
 
                 $_SESSION['erros'] = $intermediador->ValidarPessoaFisica($intermediador);
@@ -46,7 +46,7 @@ if (isset($_REQUEST['req'])) {
 
     switch ($req) {
         case "cadastrarIntermediador":
-            $tipo = $_POST['tipo'];
+            $tipo = $_POST['tipoIntermediador'];
             if($tipo == 1){
                 $intermediador->cadastrarIntermediadorFisico($intermediador, $tipo);
             }else{
@@ -68,7 +68,7 @@ if (isset($_REQUEST['req'])) {
             header("Location: ../dashboard.php?pagina=intermediadores");
             break;
         case "editarIntermediador":
-            $tipo = $_POST['tipo'];
+            $tipo = $_POST['tipoIntermediador'];
             $id = filter_input(INPUT_POST, 'idIntermediador');
             if ($tipo == 1) {
                 $intermediador->editarIntermediadorFisico($id, $tipo, $intermediador);

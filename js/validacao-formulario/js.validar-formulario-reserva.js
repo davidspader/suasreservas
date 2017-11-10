@@ -1,10 +1,5 @@
 $(document).ready(function () {
-    
-    $(".data").mask("99/99/9999");
-
-    $(".valorReal").maskMoney({thousands:'.',decimal:','});
-    
-    $("#editarReserva").validate({
+    $(".formularioReserva").validate({
         rules: {
             dataInicial: {
                 required: true, dataBR: true, compararData: true

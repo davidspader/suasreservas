@@ -13,7 +13,7 @@ if (!isset($_SESSION['logado'])) {
                 </div>
             </div>
 
-            <form class="form" role="form" method="post" action="control/imovelController.php" id="formularioCadastroImovel">
+            <form class="form formularioImovel" role="form" method="post" action="control/imovelController.php">
                 <input type="hidden" name="req" value="cadastrarImovel">
                 <input type="hidden" name="validacao" value="validacao">
                 <input type="hidden" name="tipoImovel" value="1" id="tipoImovel">
@@ -27,10 +27,10 @@ if (!isset($_SESSION['logado'])) {
                 </div>   
                 <div class="form-group row">
                     <div class="col-md-4">
-                        <input type="text" id="cepImovel" name="cepImovel" placeholder="CEP" class="form-control">
+                        <input type="text" id="cepImovel" name="cepImovel" placeholder="CEP" class="form-control cep">
                     </div>
                     <div class="col-md-4">
-                        <input type="text" id="estadoImovel" name="estadoImovel" placeholder="Sigla do estado" class="form-control">
+                        <input type="text" id="estadoImovel" name="estadoImovel" placeholder="Sigla do estado" class="form-control siglaEstado">
                     </div>
                     <div class="col-md-4">
                         <input type="text" name="cidadeImovel" id="cidadeImovel" placeholder="Cidade" class="form-control">
@@ -48,14 +48,14 @@ if (!isset($_SESSION['logado'])) {
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="checkbox-inline">
-                        <label><input type="checkbox" id="casa" checked><strong>Casa</strong></label>
+                    <div class="radio-inline">
+                        <label><input type="radio" name="tipoImovel" value="1" checked class="radioCasa"><strong>Casa</strong></label>
                     </div>
-                    <div class="checkbox-inline">
-                        <label><input type="checkbox" id="apartamento"><strong>Apartamento</strong></label>
+                    <div class="radio-inline">
+                        <label><input type="radio" name="tipoImovel" value="2" class="radioApartamento"><strong>Apartamento</strong></label>
                     </div>
                 </div>
-                <div id="formApartamento">
+                <div class="formApartamento">
                     <div class="form-group row">
                         <div class="col-md-4">
                             <input type="text" name="edificioImovel" placeholder="Edificio" class="form-control">
@@ -114,4 +114,4 @@ if (!isset($_SESSION['logado'])) {
     </div>
 </div>
 <script src="js/js-buscaCep.js"></script>
-<script src="js/js.page-imoveis.js"></script>
+<script src="js/validacao-formulario/js.validar-formulario-imovel.js"></script>

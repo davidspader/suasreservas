@@ -1,9 +1,5 @@
-$(document).ready(function () {
-    $(".telefoneCelular").mask("(99) 99999-9999");
-    $(".telefoneFixo").mask("(99) 9999-9999");
-    $("#cpfLocatario").mask("999.999.999-99");
-    
-    $("#formularioLocatario").validate({
+$(document).ready(function () {    
+    $(".formularioLocatario").validate({
         rules: {
             nomeLocatario: {
                 required: true

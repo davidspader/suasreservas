@@ -36,7 +36,7 @@
                             </ul>
                         </div>
                     <?php } ?>
-                    <form class="form" role="form" method="post" action="control/loginController.php" id="formularioLogin2">
+                    <form class="form formularioLogin" role="form" method="post" action="control/loginController.php" id="formularioLogin2">
                         <input type="hidden" name="req" value="entrar">
                         <fieldset>
 
@@ -82,7 +82,7 @@
                     <strong> Cadastre-se!</strong>
                 </div>
                 <div class="panel-body">
-                    <form class="form" role="form" method="post" action="control/cadastroController.php" id="formularioCadastro2">
+                    <form class="form formularioCadastro" role="form" method="post" action="control/cadastroController.php" id="formularioCadastro2">
                         <fieldset>
                             <div class="row">
                                 <div class="col-sm-12 col-md-10  col-md-offset-1 ">
@@ -107,7 +107,7 @@
                                             <span class="input-group-addon">
                                                 <i class="glyphicon glyphicon-user"></i>
                                             </span> 
-                                            <input class="form-control" placeholder="*CPF" name="cpfCadastro" id="cpfCadastro" type="text" required>
+                                            <input class="form-control cpf" placeholder="*CPF" name="cpfCadastro" id="cpfCadastro" type="text" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -123,7 +123,7 @@
                                             <span class="input-group-addon">
                                                 <i class="glyphicon glyphicon-phone"></i>
                                             </span>
-                                            <input class="form-control" placeholder="*Telefone" name="telefoneCadastro" type="text" id="telefoneCadastro" required>
+                                            <input class="form-control celular" placeholder="*Telefone celular" name="telefoneCadastro" type="text" id="telefoneCadastro" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -145,3 +145,5 @@
     </div>
 </div>
 <script src="js/js.page-login.js"></script>
+<script src="js/validacao-formulario/js.validar-formulario-cadastro.js"></script>
+<script src="js/validacao-formulario/js.validar-formulario-login.js"></script>

@@ -22,7 +22,6 @@ if (isset($_REQUEST['req'])) {
 
             $tipo = filter_input(INPUT_POST, 'tipoImovel');
 
-
             if ($identificacao == null) {
                 array_push($_SESSION['erros'], "O campo identificação é obrigatório.");
             }
@@ -126,6 +125,7 @@ if (isset($_REQUEST['req'])) {
             if ($imovel->excluirImovel($id, $id_usuario)) {
                 $_SESSION['feedback'] = "Imóvel excluido com sucesso!";
                 header("Location: ../dashboard.php?pagina=imoveis");
+                break;
             }
             $_SESSION['tituloErro'] = "Erro de banco!";
             array_push($_SESSION['erros'], "Este imóvel tem reservas cadastradas.");

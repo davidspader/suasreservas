@@ -1,8 +1,5 @@
 $(document).ready(function () {
-    $("#cpfCadastro").mask("999.999.999-99");
-    $("#telefoneCadastro").mask("(99) 99999-9999");
-
-    $("#formularioCadastro").validate({
+    $(".formularioCadastro").validate({
         rules: {
             nomeCadastro: {
                 required: true, rangelength: [2, 255]
@@ -35,24 +32,6 @@ $(document).ready(function () {
             },
             telefoneCadastro: {
                 required: "O campo telefone é obrigatório", rangelength: "Digite um telefone válido"
-            }
-        }
-    });
-    $("#formularioLogin").validate({
-        rules: {
-            emailLogin: {
-                required: true, email: true
-            },
-            senhaLogin: {
-                required: true, rangelength: [6, 50]
-            }
-        },
-        messages: {
-            emailLogin: {
-                required: "O campo e-mail é obrigatório", email: "Digite um e-mail válido"
-            },
-            senhaLogin: {
-                required: "O campo senha é obrigatório", rangelength: "Digite uma senha válida"
             }
         }
     });

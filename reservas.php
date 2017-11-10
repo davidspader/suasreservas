@@ -11,7 +11,7 @@ $intermediadores = IntermediadorJuridico::listarIntermediador(unserialize($_SESS
                     <button type="button" class="btn botao-padrao btn-block botaoCancelar">Cancelar cadastro</button>
                 </div>
             </div>
-            <form action="control/reservaController.php" method="post" id="cadastroReserva" role="form">
+            <form action="control/reservaController.php" method="post" id="cadastroReserva" role="form" class="formularioReserva">
                 <input type="hidden" name="req" value="cadastrarReserva">
                 <input type="hidden" name="validacao" value="validacao">
                 <div class="form-group row">
@@ -151,3 +151,4 @@ $intermediadores = IntermediadorJuridico::listarIntermediador(unserialize($_SESS
     </div>
 </div>
 <script src="js/js.page-reservas.js"></script>
+<script src="js/validacao-formulario/js.validar-formulario-reserva.js"></script>

@@ -1,23 +1,12 @@
 $(document).ready(function () {
-    $("#cepImovel").mask("99999-999");
-    $("#estadoImovel").mask("aa",{placeholder:" "});
-    
-    $("#casa").prop('disabled', true);
 
-    $("#formApartamento").hide();
-    $("#apartamento").click(function () {
-        $("#apartamento").prop('disabled', true);
-        $("#casa").prop('disabled', false);
-        $("#casa").prop('checked', false);
-        $("#formApartamento").toggle();
-        $("#tipoImovel").val("2");
+    $(".formApartamento").hide();
+    
+    $(".radioApartamento").click(function () {
+        $(".formApartamento").show();
     });
-    $("#casa").click(function () {
-        $("#apartamento").prop('disabled', false);
-        $("#casa").prop('disabled', true);
-        $("#apartamento").prop('checked', false);
-        $("#formApartamento").hide();
-        $("#tipoImovel").val("1");
+    $(".radioCasa").click(function () {
+        $(".formApartamento").hide();
     });
 
     $('[data-toggle="ajuda_identificacaoImovel"]').popover({
@@ -25,7 +14,7 @@ $(document).ready(function () {
         trigger: 'hover'
     });
     
-    $("#formularioCadastroImovel").validate({
+    $(".formularioImovel").validate({
         rules: {
             identificacaoImovel: {
                 required: true
@@ -87,3 +76,5 @@ $(document).ready(function () {
     });
     
 });
+
+

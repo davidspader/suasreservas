@@ -14,8 +14,7 @@ $imovel = Apartamento::imovelDetalhe($_POST['id'], $_POST['tipo_imovel'], unseri
         <form class="form" role="form" method="post" action="control/imovelController.php" id="formularioEdicaoImovel">
             <input type="hidden" name="req" value="editarImovel">
             <input type="hidden" name="validacao" value="validacao">
-            <input type="hidden" name="tipoImovel" value="<?php echo $_POST['tipo_imovel'];?>" id="tipoImovelEdicao">
-            <input type="hidden" name="idImovel" value="<?php echo $_POST['id'];?>" id="idImovelEdicao">
+            <input type="hidden" name="idImovel" value="<?php echo $_POST['id']; ?>" id="idImovelEdicao">
             <div class="form-group row">
                 <div class="col-md-4">
                     <input type="text" value="<?php echo $imovel->getIdentificacao(); ?>" id="identificacaoEdicaoImovel" name="identificacaoImovel" placeholder="*Nome de identificação" class="form-control">
@@ -23,10 +22,10 @@ $imovel = Apartamento::imovelDetalhe($_POST['id'], $_POST['tipo_imovel'], unseri
             </div>   
             <div class="form-group row">
                 <div class="col-md-4">
-                    <input type="text" value="<?php echo $imovel->getCep(); ?>" id="cepImovel" name="cepImovel" placeholder="CEP" class="form-control">
+                    <input type="text" value="<?php echo $imovel->getCep(); ?>" id="cepImovel" name="cepImovel" placeholder="CEP" class="form-control cep">
                 </div>
                 <div class="col-md-4">
-                    <input type="text" value="<?php echo $imovel->getSiglaEstado(); ?>" id="estadoImovel" name="estadoImovel" placeholder="Sigla do estado" class="form-control">
+                    <input type="text" value="<?php echo $imovel->getSiglaEstado(); ?>" id="estadoImovel" name="estadoImovel" placeholder="Sigla do estado" class="form-control siglaEstado">
                 </div>
                 <div class="col-md-4">
                     <input type="text" value="<?php echo $imovel->getCidade(); ?>" name="cidadeImovel" id="cidadeImovel" placeholder="Cidade" class="form-control">
@@ -44,14 +43,14 @@ $imovel = Apartamento::imovelDetalhe($_POST['id'], $_POST['tipo_imovel'], unseri
                 </div>
             </div>
             <div class="form-group">
-                <div class="checkbox-inline">
-                    <label><input type="checkbox" id="casaEdicao" <?php if($_POST['tipo_imovel'] == 1){echo 'checked';}?> ><strong>Casa</strong></label>
+                <div class="radio-inline">
+                    <label><input type="radio" name="tipoImovel" value="1" <?php if($_POST['tipo_imovel'] == 1){echo 'checked';}?> class="radioCasa"><strong>Casa</strong></label>
                 </div>
-                <div class="checkbox-inline">
-                    <label><input type="checkbox" id="apartamentoEdicao" <?php if($_POST['tipo_imovel'] == 2){echo 'checked';}?> ><strong>Apartamento</strong></label>
+                <div class="radio-inline">
+                    <label><input type="radio" name="tipoImovel" value="2" <?php if($_POST['tipo_imovel'] == 2){echo 'checked';}?> class="radioApartamento" id="apartamentoEdicao"><strong>Apartamento</strong></label>
                 </div>
             </div>
-            <div id="formApartamentoEdicao">
+            <div class="formApartamento">
                 <div class="form-group row">
                     <div class="col-md-4">
                         <input type="text" value="<?php echo $imovel->getEdificio(); ?>" name="edificioImovel" id="edificioEdicaoImovel" placeholder="Edificio" class="form-control">
@@ -74,4 +73,5 @@ $imovel = Apartamento::imovelDetalhe($_POST['id'], $_POST['tipo_imovel'], unseri
     </div>
 </div>
 <script src="js/js-buscaCep.js"></script>
-<script src="js/js.page-imovel-detalhe.js"></script>
+<script src="js/validacao-formulario/js.validar-formulario-imovel.js"></script>
+<script src="js/js.page-imovel-editar.js"></script>
