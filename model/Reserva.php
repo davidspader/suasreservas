@@ -183,14 +183,14 @@ class Reserva extends ConexaoDB{
             
     function verificarDataMarcada($id_usuario,$dataI,$dataF,$id_imovel,$id) {
         $pdo = new PDO(ConexaoDB::getConexaoStatic());
-        $sql = "select * from reserva where id_imovel = :id_imovel and id_usuario = :id_usuario and data_inicial BETWEEN :dataInicial AND :dataFinal or data_final BETWEEN  :dataInicial AND :dataFinal and id_imovel = :id_imovel and id_usuario = :id_usuario;";
+        $sql = "select * from reserva where (:dataInicial, :dataFinal) OVERLAPS (data_inicial, data_final) and id_usuario = :id_usuario and id_imovel = :id_imovel;";
         $select = $pdo->prepare($sql);
         $select->bindValue(":id_usuario", $id_usuario);
         $select->bindValue(":id_imovel", $id_imovel);
         $select->bindValue(":dataInicial", $dataI);
         $select->bindValue(":dataFinal", $dataF);
         $select->execute();
-
+        
         $teste = array();
 
         foreach ($select as $i) {
