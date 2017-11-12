@@ -61,6 +61,7 @@ if (!isset($_SESSION['logado'])) {
                     <button type="button" class="btn botao-padrao btn-block botaoCadastrar" id="cadastrarIntermediadorBotao">Cadastrar novo intermediador</button>
                 </div>
             </div>
+            <hr>
             <?php
             $intermediadores = IntermediadorJuridico::listarIntermediador(unserialize($_SESSION['logado'])->getId());
             ?>

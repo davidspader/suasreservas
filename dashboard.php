@@ -105,7 +105,7 @@ $selecionada = isset($paginas[$pagina]) ? $paginas[$pagina] : $paginas['reservas
             <div class="alert alert-danger alert-dismissable">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <?php foreach ($_SESSION['erros'] as $erro) { ?>
-                    <span><?php echo $erro."<br>"; ?></span>
+                    <strong><?php echo $erro."<br>"; ?></strong>
                 <?php } ?>
             </div>
             <?php } unset($_SESSION['erros']);unset($_SESSION['tituloErro']); ?>

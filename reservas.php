@@ -1,6 +1,10 @@
 <?php
 $imoveis = Apartamento::listarImovel(unserialize($_SESSION['logado'])->getId());
 $intermediadores = IntermediadorJuridico::listarIntermediador(unserialize($_SESSION['logado'])->getId());
+if (!isset($imoveis[0])){
+    $_SESSION['feedback'] = "Bem vindo, cadastre um imóvel para começar a utilizar o sistema";
+    header("Location: dashboard.php?pagina=imoveis");
+}
 ?>
 <div class="panel-group">
     <div class="panel panel-default painel-formulario" id="formReserva">
@@ -74,6 +78,12 @@ $intermediadores = IntermediadorJuridico::listarIntermediador(unserialize($_SESS
         <div class="panel-heading"><strong>Reservas:</strong></div>
         <div class="panel-body">
             <div class="row mb-15">
+                <div class="col-md-3 pull-right">
+                    <button type="button" class="botaoCadastrar btn botao-padrao btn-block">Cadastrar nova reserva</button>
+                </div>
+            </div>
+            <hr>
+            <div class="row mb-15">
                 <div class="col-md-3">
                     <select name="selectImovel" class="form-control text-center selectImovel">
                         <option value="0" selected>Selecione um imóvel</option>
@@ -91,9 +101,6 @@ $intermediadores = IntermediadorJuridico::listarIntermediador(unserialize($_SESS
                         ?>
                     </select>
                 </div>
-                <div class="col-md-3 pull-right">
-                    <button type="button" class="botaoCadastrar btn botao-padrao btn-block">Cadastrar nova reserva</button>
-                </div>
             </div>
             
             
@@ -108,7 +115,7 @@ $intermediadores = IntermediadorJuridico::listarIntermediador(unserialize($_SESS
                         }
                         $reservas = Reserva::listarReservas(unserialize($_SESSION['logado'])->getId(), $id_imovel);
                         if(empty($reservas)){
-                            echo "este imóvel não tem reservas";
+                            echo "este imóvel não possui reservas";
                         }else{ 
                             foreach ($reservas as $r){ 
                                 $id = $r->getId(); 

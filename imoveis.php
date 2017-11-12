@@ -85,6 +85,7 @@ if (!isset($_SESSION['logado'])) {
                     <button type="button" class="btn botao-padrao btn-block botaoCadastrar" id="cadastrarImovelBotao">Cadastrar novo imóvel</button>
                 </div>
             </div>
+            <hr>
             <?php
             $imoveis = Apartamento::listarImovel(unserialize($_SESSION['logado'])->getId());
             ?>
