@@ -211,6 +211,8 @@ section {
 	line-height: 59px;
 	padding: 0 19%;
 	text-transform: uppercase;
+        text-shadow: 2px -2px 2px black; 
+        font-weight: bold;
 }
 .main-slider .swiper-pagination-bullet {
 	width: 20px;
@@ -255,6 +257,14 @@ section {
 	font-weight: 600;
         color: #00796b;
 }
+
+.service-sec h3 small {
+	color: #00796b;
+	display: block;
+	font-size: 18px;
+	margin-top: 10px;
+}
+
 .service-sec p {
 	line-height: 22px;
 	margin-top: 13px;
@@ -267,7 +277,7 @@ section {
 /* ABOUT SECTION
 -------------------------------------------------- */
 .about-sec {
-	background: url('../img/para-01.jpg') no-repeat center center;
+	background: url('../img/3.jpg') no-repeat center center;
 	background-size: cover;
 	color: #fff;
 	position: relative;
@@ -294,6 +304,7 @@ section {
 }
 .about-sec p {
 	font-size: 16px;
+        text-align: justify;
 }
 
 
