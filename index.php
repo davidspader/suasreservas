@@ -40,6 +40,17 @@ if ($selecionada['arquivo'] != "home.php") {
             <script src="bootstrap-jquery/jquery/jquery.maskedinput.js"></script>
             <script src="bootstrap-jquery/jquery/jquery.validate.js"></script>
             <script src="js/jquery.validate-metodos.js"></script>
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110341458-1"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag() {
+                    dataLayer.push(arguments);
+                }
+                gtag('js', new Date());
+
+                gtag('config', 'UA-110341458-1');
+            </script>
         </head>
         <body>
             <div id="conteudo"><?php include_once($selecionada['arquivo']); ?></div>
@@ -47,7 +58,7 @@ if ($selecionada['arquivo'] != "home.php") {
         <script src="js/js.mascaras.js"></script>    
     </html>
 
-<?php
+    <?php
 } else {
     include_once($selecionada['arquivo']);
 }

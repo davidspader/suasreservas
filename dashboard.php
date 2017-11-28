@@ -64,6 +64,17 @@ $selecionada = isset($paginas[$pagina]) ? $paginas[$pagina] : $paginas['reservas
         <script src="bootstrap-jquery/jquery/jquery.validate.js"></script>
         <script src="bootstrap-jquery/jquery/jquery.maskMoney.js" type="text/javascript"></script>
         <script src="js/jquery.validate-metodos.js"></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110341458-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-110341458-1');
+        </script>
     </head>
     <body>
         <div id="top-nav" class="navbar navbar-default navbar-static-top">
