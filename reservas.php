@@ -19,16 +19,8 @@ if (!isset($imoveis[0])){
                 <input type="hidden" name="req" value="cadastrarReserva">
                 <input type="hidden" name="validacao" value="validacao">
                 <div class="form-group row">
-                    <div class="col-md-4">
-                        <input type="text" id="dataInicial" name="dataInicial" placeholder="*Data inicial" class="total form-control data">
-                    </div> 
-                    <div class="col-md-4">
-                        <input type="text" id="dataFinal" name="dataFinal" placeholder="*Data final" class="total form-control data">
-                    </div> 
-                </div>
-                <div class="form-group row">
-                    <div class="col-md-4">
-                        <select name="imovel" class="form-control text-center">
+                    <div class="col-md-3">
+                        <select name="imovel" class="form-control text-center" id="imovel">
                             <option selected>*Imóvel</option>
                             <?php
                             foreach ($imoveis as $i) {
@@ -39,7 +31,34 @@ if (!isset($imoveis[0])){
                             ?>
                         </select>
                     </div>
-                    <div class="col-md-4">
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <input type="text" id="dataInicial" name="dataInicial" placeholder="*Data inicial" class="total form-control data">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" id="dataFinal" name="dataFinal" placeholder="*Data final" class="total form-control data">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" id="nomeLocatario" name="nomeLocatario" placeholder="Nome do locatário" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <input type="text" id="precoDiaria" name="precoDiaria" placeholder="*Preço diária" class="total form-control valorReal">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" id="taxaLimpeza" name="taxaLimpeza" placeholder="Taxa de limpeza" class="total form-control valorReal">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" id="desconto" name="desconto" placeholder="Desconto" class="total form-control valorReal">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" id="totalDepositado" name="totalDepositado" placeholder="Total depositado" class="total form-control valorReal">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3">
                         <select name="intermediador" class="form-control text-center">
                             <option value="0" selected>Intermediador</option>
                             <?php
@@ -51,20 +70,23 @@ if (!isset($imoveis[0])){
                             ?>
                         </select>
                     </div>
-                    <div class="col-md-4">
-                        <input type="text" id="porcentagemIntermediador" name="porcentagemIntermediador" placeholder="Porcentagem intermediador" class="form-control">
-                    </div>    
+                    <div class="col-md-3">
+                        <input type="text" id="porcentagemIntermediador" name="porcentagemIntermediador" placeholder="Porcentagem intermediador" class="total form-control">
+                    </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-md-4">
-                        <input type="text" id="precoDiaria" name="precoDiaria" placeholder="*Preço diaria" class="total form-control valorReal">
-                    </div> 
-                    <div class="col-md-4">
-                        <input type="text" id="taxaLimpeza" name="taxaLimpeza" placeholder="Taxa de limpeza" class="total form-control valorReal">
-                    </div> 
-                    <div class="col-md-4">
-                        <input type="text" id="desconto" name="desconto" placeholder="Desconto" class="total form-control valorReal">
-                    </div> 
+                    <div class="col-md-3">
+                        <input type="text" id="qtdDiarias"  placeholder="Quantidade de diárias" disabled class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" id="valorIntermediador" placeholder="Valor do intermediador" disabled class="form-control valorReal">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" id="TotalReceber" placeholder="Valor a receber" disabled class="form-control valorReal">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" id="total" placeholder="Valor líquido" disabled class="form-control valorReal">
+                    </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-2">
