@@ -142,19 +142,31 @@ if (!isset($imoveis[0])){
                             foreach ($reservas as $r){ 
                                 $id = $r->getId(); 
                                 $qtdDias = Validacao::verificaQuantidadeDias($r->getDataInicial(), $r->getDataFinal());
+                                $valorTotal = $qtdDias*$r->getPrecoDiaria()-$r->getDesconto();
+
+                                $porcentagem = "0.".$r->getPorcentagemIntermediador();
+                                $valorIntermediador = $valorTotal*$porcentagem;
+
+                                $valorParaReceber = $valorTotal+$r->getTaxaLimpeza()-$r->getTotalDepositado()-$valorIntermediador;
+
+                                $valorLiquido = $valorTotal+$r->getTaxaLimpeza()-$valorIntermediador;
                             ?>
                             <div class=" well well-sm col-md-3">
                                 <ul class="list-group text-center">
                                     <li class="list-group-item"><?php echo "<img src='css/imagens/icones/reserva/icone-reserva.png' class='img-thumbnail' alt='icone'>"?></li>
                                     <li class="list-group-item"><strong>Data Inicial: </strong><?php echo Validacao::transformaTimestampEmData($r->getDataInicial()); ?></li>
                                     <li class="list-group-item"><strong>Data Final: </strong><?php echo Validacao::transformaTimestampEmData($r->getDataFinal()); ?></li>
-                                    <li class="list-group-item"><strong>Imóvel: </strong><?php echo $r->identificacao; ?></li>
+                                    <li class="list-group-item"><strong>Diárias: </strong><?php echo $qtdDias; ?></li>
+                                    <li class="list-group-item"><strong>Locatário: </strong><?php echo $r->getLocatario(); ?></li>
                                     <li class="list-group-item"><strong>Intermediador: </strong><?php if($r->getIntermediador() == null){ echo $r->nome;}else{ echo Reserva::buscarIntermediadorNome($r->getIntermediador());}?></li>
                                     <li class="list-group-item"><strong>P. intermediador: </strong><?php echo $r->getPorcentagemIntermediador(); ?>%</li>
+                                    <li class="list-group-item"><strong>Valor Intermediador: </strong>R$ <?php echo number_format($valorIntermediador, 2, ',', '.');?></li>
                                     <li class="list-group-item"><strong>Preço da diária: </strong>R$ <?php echo number_format($r->getPrecoDiaria(), 2, ',', '.'); ?></li>
                                     <li class="list-group-item"><strong>Taxa de limpeza: </strong>R$ <?php echo number_format($r->getTaxaLimpeza(), 2, ',', '.'); ?></li>
                                     <li class="list-group-item"><strong>Desconto: </strong>R$ <?php echo number_format($r->getDesconto(), 2, ',', '.');?></li>
-                                    <li class="list-group-item"><strong>Total: </strong>R$ <?php echo number_format($qtdDias*$r->getPrecoDiaria()+$r->getTaxaLimpeza()-$r->getDesconto(), 2, ',', '.');?></li>
+                                    <li class="list-group-item"><strong>Já depositado: </strong>R$ <?php echo number_format($r->getTotalDepositado(), 2, ',', '.');?></li>
+                                    <li class="list-group-item"><strong>Valor a receber: </strong>R$ <?php echo number_format($valorParaReceber, 2, ',', '.');?></li>
+                                    <li class="list-group-item"><strong>Valor líquido: </strong>R$ <?php echo number_format($valorLiquido, 2, ',', '.');?></li>
                                     <li class="list-group-item">
                                         <form action="dashboard.php?pagina=criar-contrato" method="post">
                                         <input type="hidden" value="<?php echo $id;?>" name="id">

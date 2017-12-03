@@ -17,7 +17,7 @@ if (isset($_REQUEST['req'])) {
                 $id = null;
             }
             
-            $r = new Reserva($id, $usuario, $_POST['dataInicial'], $_POST['dataFinal'], $_POST['imovel'], $_POST['intermediador'], $_POST['porcentagemIntermediador'], $_POST['precoDiaria'], $_POST['taxaLimpeza'], $_POST['desconto']);
+            $r = new Reserva($id, $usuario, $_POST['dataInicial'], $_POST['dataFinal'], $_POST['imovel'], $_POST['intermediador'], $_POST['porcentagemIntermediador'], $_POST['precoDiaria'], $_POST['taxaLimpeza'], $_POST['desconto'],$_POST['nomeLocatario'],$_POST['totalDepositado']);
             $retorno = $r->validarReserva($r);
             $reserva = unserialize($retorno['obj']);
             $_SESSION['erros'] = $retorno['erros'];

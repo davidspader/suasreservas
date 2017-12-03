@@ -106,11 +106,11 @@ $(document).ready(function () {
         valorParaReceber = valorTotal+taxaLimpeza-depositado-desconto-valorIntermediador;
 
         valorTotal = valorTotal+taxaLimpeza-valorIntermediador;
-
-        $("#TotalReceber").attr("placeholder", "Valor a receber: "+ converteFloatMoeda(valorParaReceber));
-        $("#valorIntermediador").attr("placeholder", "Valor do intermediador: "+ converteFloatMoeda(valorIntermediador));
-        $("#total").attr("placeholder", "Valor líquido: "+ converteFloatMoeda(valorTotal));
-
+        if(!isNaN(qtdDiaria)){
+            $("#TotalReceber").attr("placeholder", "Valor a receber: "+ converteFloatMoeda(valorParaReceber));
+            $("#valorIntermediador").attr("placeholder", "Valor do intermediador: "+ converteFloatMoeda(valorIntermediador));
+            $("#total").attr("placeholder", "Valor líquido: "+ converteFloatMoeda(valorTotal));
+        }
     });
 });
 
