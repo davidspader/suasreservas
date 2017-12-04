@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f1a112c-cd7b-4219-8b38-c839160eac3e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/home.php" afterPath="$PROJECT_DIR$/home.php" />
+      <change beforePath="$PROJECT_DIR$/js/js.page-reservas.js" afterPath="$PROJECT_DIR$/js/js.page-reservas.js" />
+      <change beforePath="$PROJECT_DIR$/reservas.php" afterPath="$PROJECT_DIR$/reservas.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,28 +17,18 @@
       <file leaf-file-name="reservas.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/reservas.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1513">
-              <caret line="89" column="22" lean-forward="false" selection-start-line="76" selection-start-column="16" selection-end-line="89" selection-end-column="22" />
+            <state relative-caret-position="119">
+              <caret line="146" column="110" lean-forward="false" selection-start-line="146" selection-start-column="110" selection-end-line="146" selection-end-column="110" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="js.page-reservas.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="js.page-reservas.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/js.page-reservas.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="108" column="12" lean-forward="false" selection-start-line="108" selection-start-column="12" selection-end-line="108" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/home.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="68" lean-forward="true" selection-start-line="8" selection-start-column="68" selection-end-line="8" selection-end-column="68" />
+            <state relative-caret-position="243">
+              <caret line="103" column="62" lean-forward="true" selection-start-line="103" selection-start-column="62" selection-end-line="103" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -80,11 +71,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/control/reservaController.php" />
-        <option value="$PROJECT_DIR$/reservas.php" />
         <option value="$PROJECT_DIR$/model/Reserva.php" />
         <option value="$PROJECT_DIR$/reserva-editar.php" />
-        <option value="$PROJECT_DIR$/js/js.page-reservas.js" />
         <option value="$PROJECT_DIR$/home.php" />
+        <option value="$PROJECT_DIR$/reservas.php" />
+        <option value="$PROJECT_DIR$/js/js.page-reservas.js" />
       </list>
     </option>
   </component>
@@ -172,16 +163,15 @@
       <workItem from="1512228701455" duration="11031000" />
       <workItem from="1512245416843" duration="5405000" />
       <workItem from="1512307994235" duration="4079000" />
-      <workItem from="1512345624208" duration="356000" />
+      <workItem from="1512345624208" duration="799000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20871000" />
+    <option name="totallyTimeSpent" value="21314000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22108346" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -340,6 +330,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1692">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1510116682945" expanded="true" signature="769:949" ph="insert into intermediador... " />
+            <marker date="1510116682945" expanded="true" signature="1769:1819" ph="select * fro... intermediador" />
+            <marker date="1510116682945" expanded="true" signature="2496:2565" ph="DELETE FROM intermediador... " />
+            <marker date="1510116682945" expanded="true" signature="2962:3078" ph="select * fro... intermediador" />
+            <marker date="1510116682945" expanded="true" signature="3779:3979" ph="update intermediador... " />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -373,14 +370,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reservas.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1513">
-          <caret line="89" column="22" lean-forward="false" selection-start-line="76" selection-start-column="16" selection-end-line="89" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/reserva-editar.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1819">
@@ -389,18 +378,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/js.page-reservas.js">
+    <entry file="file://$PROJECT_DIR$/home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="108" column="12" lean-forward="false" selection-start-line="108" selection-start-column="12" selection-end-line="108" selection-end-column="12" />
+        <state relative-caret-position="323">
+          <caret line="19" column="16" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home.php">
+    <entry file="file://$PROJECT_DIR$/reservas.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="68" lean-forward="true" selection-start-line="8" selection-start-column="68" selection-end-line="8" selection-end-column="68" />
+        <state relative-caret-position="119">
+          <caret line="146" column="110" lean-forward="false" selection-start-line="146" selection-start-column="110" selection-end-line="146" selection-end-column="110" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/js.page-reservas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="103" column="62" lean-forward="true" selection-start-line="103" selection-start-column="62" selection-end-line="103" selection-end-column="62" />
           <folding />
         </state>
       </provider>

@@ -97,11 +97,11 @@ $(document).ready(function () {
         var taxaLimpeza = converteMoedaFloat($("#taxaLimpeza").val());
         var desconto = converteMoedaFloat($("#desconto").val());
         var depositado = converteMoedaFloat($("#totalDepositado").val());
-        var porcentagem = "0." + $("#porcentagemIntermediador").val();
+        var porcentagem = $("#porcentagemIntermediador").val();
 
         valorTotal = qtdDiaria*precoDiario-desconto;
 
-        valorIntermediador = valorTotal * porcentagem;
+        valorIntermediador = (porcentagem * 100) / valorTotal;
 
         valorParaReceber = valorTotal+taxaLimpeza-depositado-desconto-valorIntermediador;
 
