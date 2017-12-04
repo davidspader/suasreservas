@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
-        <link rel="icon" href=" ">
+        <link rel="icon" href="css/imagens/icones/icone-titulo.png">
         <title>Suas Reservas</title>
         <link href="landing-page/css/bootstrap.min.css" rel="stylesheet">
         <link href="landing-page/css/custom.css" rel="stylesheet">
