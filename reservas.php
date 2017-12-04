@@ -144,7 +144,7 @@ if (!isset($imoveis[0])){
                                 $qtdDias = Validacao::verificaQuantidadeDias($r->getDataInicial(), $r->getDataFinal());
                                 $valorTotal = $qtdDias*$r->getPrecoDiaria()-$r->getDesconto();
 
-                                $valorIntermediador = ($r->getPorcentagemIntermediador() * 100) / $valorTotal;
+                                $valorIntermediador = ($valorTotal / 100) * $r->getPorcentagemIntermediador();
 
                                 $valorParaReceber = $valorTotal+$r->getTaxaLimpeza()-$r->getTotalDepositado()-$valorIntermediador;
 

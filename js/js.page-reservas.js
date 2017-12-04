@@ -101,7 +101,7 @@ $(document).ready(function () {
 
         valorTotal = qtdDiaria*precoDiario-desconto;
 
-        valorIntermediador = (porcentagem * 100) / valorTotal;
+        valorIntermediador = (valorTotal / 100) * porcentagem;
 
         valorParaReceber = valorTotal+taxaLimpeza-depositado-desconto-valorIntermediador;
 
