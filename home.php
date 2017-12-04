@@ -4,26 +4,18 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="icon" href=" ">
         <title>Suas Reservas</title>
-
-        <!-- Bootstrap core CSS -->
         <link href="landing-page/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Custom styles for this template -->
         <link href="landing-page/css/custom.css" rel="stylesheet">
-
-        <!-- Helper Styles -->
         <link href="landing-page/css/loaders.css" rel="stylesheet">
         <link href="landing-page/css/swiper.min.css" rel="stylesheet">
         <link rel="stylesheet" href="landing-page/css/animate.min.css">
         <link rel="stylesheet" href="landing-page/css/nivo-lightbox.css">
         <link rel="stylesheet" href="landing-page/css/nivo_themes/default/default.css">
-        <!-- Font Awesome Style -->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110341458-1"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -43,7 +35,6 @@
             </div>
         </div>
 
-        <!-- Top Navigation -->
         <nav class="navbar navbar-toggleable-md mb-4 top-bar navbar-static-top sps sps--abv">
             <div class="container">
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse1" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,9 +51,6 @@
         </nav>
 
 
-        <!-- Swiper Silder
-            ================================================== --> 
-        <!-- Slider main container -->
         <div class="swiper-container main-slider" id="myCarousel">
             <div class="swiper-wrapper">
                 <div class="swiper-slide slider-bg-position" style="background:url('landing-page/img/1.jpg')" data-hash="slide1">
@@ -72,9 +60,7 @@
                     <h2>Cadastre-se agora, e não perca essa oportunidade!</h2>
                 </div>
             </div>
-            <!-- Add Pagination -->
             <div class="swiper-pagination"></div>
-            <!-- Add Navigation -->
             <div class="swiper-button-prev"><i class="fa fa-chevron-left"></i></div>
             <div class="swiper-button-next"><i class="fa fa-chevron-right"></i></div>
         </div>
@@ -142,10 +128,7 @@
             </div>
         </footer>
 
-        <!-- Bootstrap core JavaScript
-            ================================================== --> 
-        <!-- Placed at the end of the document so the pages load faster --> 
-        <script src="landing-page/js/jquery.min.js" ></script> 
+        <script src="landing-page/js/jquery.min.js" ></script>
         <script src="landing-page/js/bootstrap.min.js"></script> 
         <script src="landing-page/js/scrollPosStyler.js"></script> 
         <script src="landing-page/js/swiper.min.js"></script> 
@@ -154,7 +137,6 @@
         <script src="landing-page/js/wow.min.js"></script> 
         <script src="landing-page/js/core.js"></script> 
 
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug --> 
         <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
     </body>
 </html>
