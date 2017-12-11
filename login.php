@@ -47,7 +47,7 @@
                                             <span class="input-group-addon">
                                                 <i class="glyphicon glyphicon-user"></i>
                                             </span> 
-                                            <input class="form-control" placeholder="E-mail" name="emailLogin" type="text" autofocus required>
+                                            <input class="form-control" placeholder="*E-mail" name="emailLogin" type="text" autofocus required>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -55,7 +55,7 @@
                                             <span class="input-group-addon">
                                                 <i class="glyphicon glyphicon-lock"></i>
                                             </span>
-                                            <input class="form-control" placeholder="Senha" name="senhaLogin" type="password" required>
+                                            <input class="form-control" placeholder="*Senha" name="senhaLogin" type="password" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
