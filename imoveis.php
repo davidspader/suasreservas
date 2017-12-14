@@ -86,6 +86,12 @@ if (!isset($_SESSION['logado'])) {
                 </div>
             </div>
             <hr>
+            <div class="row mb-15">
+                <div class="input-group col-md-3 pull-right">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                    <input name="consulta" id="txt_consulta" placeholder="Consultar" type="text" class="form-control">
+                </div>
+            </div>
             <?php
             $imoveis = Apartamento::listarImovel(unserialize($_SESSION['logado'])->getId());
             ?>
@@ -93,8 +99,8 @@ if (!isset($_SESSION['logado'])) {
                 <div class="row">
                     <?php foreach ($imoveis as $i) { $tipo = $i->tipo; $id = $i->getId();?>
                     
-                        <div class=" well well-sm col-md-3">
-                            <ul class="list-group text-center">
+                        <div class=" well well-sm col-md-3 lista">
+                            <ul class="list-group text-center lista">
                                 <li class="list-group-item"><?php echo "<img src='css/imagens/icones/imovel/icone-imovel-$tipo.png' class='img-thumbnail' alt='icone'>"?></li>
                                 <li class="list-group-item"><strong><?php echo $i->getIdentificacao(); ?></strong></li>
                                 <li class="list-group-item"><?php if(!Validacao::encontraNumeros($i->getCep())){echo "-";}else{echo $i->getCep();} ?></li>

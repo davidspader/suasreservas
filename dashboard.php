@@ -61,6 +61,7 @@ $selecionada = isset($paginas[$pagina]) ? $paginas[$pagina] : $paginas['reservas
         <script src="bootstrap-jquery/bootstrap/js/bootstrap.min.js"></script>
         <script src="js/js.funcoes-padrao.js"></script>
         <script src="bootstrap-jquery/jquery/jquery.maskedinput.js"></script>
+        <script src="bootstrap-jquery/jquery/jquery.quicksearch.js"></script>
         <script src="bootstrap-jquery/jquery/jquery.validate.js"></script>
         <script src="bootstrap-jquery/jquery/jquery.maskMoney.js" type="text/javascript"></script>
         <script src="js/jquery.validate-metodos.js"></script>

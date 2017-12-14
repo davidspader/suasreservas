@@ -17,4 +17,6 @@ $(document).ready(function () {
         if (!confirm("tem certeza que deseja excluir?"))
           evento.preventDefault();
     });
+
+    $('#txt_consulta').quicksearch('.lista');
 });

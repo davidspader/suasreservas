@@ -123,9 +123,11 @@ if (!isset($imoveis[0])){
                         ?>
                     </select>
                 </div>
+                <div class="input-group col-md-3 pull-right">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                    <input name="consulta" id="txt_consulta" placeholder="Consultar" type="text" class="form-control">
+                </div>
             </div>
-            
-            
             <div class="container-fluid">
                 <div class="row">
                     <?php
@@ -150,8 +152,8 @@ if (!isset($imoveis[0])){
 
                                 $valorLiquido = $valorTotal+$r->getTaxaLimpeza()-$valorIntermediador;
                             ?>
-                            <div class=" well well-sm col-md-3">
-                                <ul class="list-group text-center">
+                            <div class=" well well-sm col-md-3 lista">
+                                <ul class="list-group text-center lista">
                                     <li class="list-group-item"><?php echo "<img src='css/imagens/icones/reserva/icone-reserva.png' class='img-thumbnail' alt='icone'>"?></li>
                                     <li class="list-group-item"><strong>Data Inicial: </strong><?php echo Validacao::transformaTimestampEmData($r->getDataInicial()); ?></li>
                                     <li class="list-group-item"><strong>Data Final: </strong><?php echo Validacao::transformaTimestampEmData($r->getDataFinal()); ?></li>

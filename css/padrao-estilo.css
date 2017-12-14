@@ -16,6 +16,9 @@
 .mb-15{
     margin-bottom: 30px;
 }
+.input-group {
+    margin-right: 15px;
+}
 .bg-padrao{
     background-color: #00796b;
     color: white;
