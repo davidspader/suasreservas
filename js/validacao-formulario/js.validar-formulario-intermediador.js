@@ -38,6 +38,12 @@ $(document).ready(function () {
             },
             emailIntermediador: {
                 email: true
+            },
+            telefoneCelularIntermediador: {
+                telefone: true
+            },
+            telefoneFixoIntermediador: {
+                telefone: true
             }
         },
         messages: {
@@ -49,6 +55,12 @@ $(document).ready(function () {
             },
             emailIntermediador: {
                 email: "Digite um e-mail válido"
+            },
+            telefoneCelularIntermediador: {
+                telefone: "Digite um telefone celular válido"
+            },
+            telefoneFixoIntermediador: {
+                telefone: "Digite um telefone fixo válido"
             }
         }
     });

@@ -9,6 +9,12 @@ $(document).ready(function () {
             },
             emailLocatario: {
                 email: true
+            },
+            telefoneCelularLocatario: {
+                telefone: true
+            },
+            telefoneFixoLocatario: {
+                telefone: true
             }
         },
         messages: {
@@ -20,6 +26,12 @@ $(document).ready(function () {
             },
             emailLocatario: {
                 email: "Digite um e-mail válido"
+            },
+            telefoneCelularLocatario: {
+                telefone: "Digite um telefone celular válido"
+            },
+            telefoneFixoLocatario: {
+                telefone: "Digite um telefone fixo válido"
             }
         }
     });

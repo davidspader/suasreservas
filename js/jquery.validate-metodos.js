@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
     $.validator.addMethod('cpf', function (value, element, param) {
+
         $return = true;
         if (value === "") {
             return true;
@@ -139,13 +140,6 @@ $(document).ready(function () {
         return true;
     });
 
-    $.validator.addMethod("apenasNumero", function (value) {
-        if (isNaN(value)) {
-            return false;
-        }
-        return true;
-    });
-
     $.validator.addMethod("compararData", function () {
         var data_1 = new Date($("#dataInicial").val());
         var data_2 = new Date($("#dataFinal").val());
@@ -154,5 +148,24 @@ $(document).ready(function () {
         }
         return true;
     });
-});
 
+    $.validator.addMethod("apenasNumero", function (value) {
+        if (isNaN(value)) {
+            return false;
+        }
+        return true;
+    });
+
+    $.validator.addMethod("telefone", function (value) {
+        var regex = "^\\([1-9]{2}\\) [2-9][0-9]{3,4}\\-[0-9]{4}$";
+        var regexp = new RegExp(regex);
+        var teste = regexp.exec(value);
+
+        if(teste != null) {
+            return true;
+        }
+
+        return false;
+
+    });
+});

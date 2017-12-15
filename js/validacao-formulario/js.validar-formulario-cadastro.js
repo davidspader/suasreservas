@@ -14,7 +14,7 @@ $(document).ready(function () {
                 required: true, rangelength: [6, 255]
             },
             telefoneCadastro: {
-                required: true, rangelength: [14, 15]
+                required: true, rangelength: [14, 15], telefone: true
             }
         },
         messages: {
@@ -31,7 +31,7 @@ $(document).ready(function () {
                 required: "O campo senha é obrigatório", rangelength: "A senha deve conter mais de 6 digitos"
             },
             telefoneCadastro: {
-                required: "O campo telefone é obrigatório", rangelength: "Digite um telefone válido"
+                required: "O campo telefone é obrigatório", rangelength: "Digite um telefone válido", telefone: "Digite um telefone válido"
             }
         }
     });
