@@ -25,7 +25,7 @@ if (!isset($_SESSION['logado'])) {
                 </div>
                 <div class="form-group row">
                     <div class="col-md-3">
-                        <input type="text" id="nomeIntermediador" name="nomeIntermediador" placeholder="*Nome" class="form-control nomeIntermediador">
+                        <input type="text" id="nomeIntermediador" name="nomeIntermediador" placeholder="*Nome" class="form-control">
                     </div>
                 </div>
                 <div class="form-group row">
