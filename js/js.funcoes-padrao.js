@@ -19,4 +19,18 @@ $(document).ready(function () {
     });
 
     $('#txt_consulta').quicksearch('.lista');
+
+    $(".informacoes").hide();
+    $(".menos-detalhes").hide();
+
+
+    $( ".detalhes" ).click(function() {
+        var id = "#" + $(this).parent().data('id');
+        $(id).toggle();
+        if($(this).text() === "Mostrar mais"){
+            $(this).text("Mostrar menos");
+        }else{
+            $(this).text("Mostrar mais");
+        }
+    });
 });

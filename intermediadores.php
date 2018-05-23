@@ -3,101 +3,201 @@ if (!isset($_SESSION['logado'])) {
     header("Location: index.php");
 }
 ?>
-<div class="panel-group">
-    <div class="panel panel-default painel-formulario" id="formIntermediador">
-        <div class="panel-heading"><strong>Cadastrar Intermediador:</strong></div>
-        <div class="panel-body">
+<div class="painel-formulario">
+
+    <!-- BOTÃO PARA CANCELAR FORMUÁRIO DE CADASTRO -->
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <button type="button" class="btn btn-primary btn-block botaoCancelar" id="cancelarCadastrarIntermediador">Cancelar cadastro</button>
+            </div>
+        </div>
+    </div>
+    <div>
+
+        <!-- FORMULÁRIO DE CADASTRO -->
+        <form class="form formularioIntermediador" role="form" method="post" action="control/intermediadorController.php" id="formularioCadastroIntermediador">
+            <input type="hidden" name="req" value="cadastrarIntermediador">
+            <input type="hidden" name="validacao" value="validacao">
+
             <div class="row">
-                <div class="col-md-3 pull-right">
-                    <button type="button" class="btn botao-padrao btn-block botaoCancelar" id="cancelarCadastrarIntermediadorBotao">Cancelar cadastro</button>
-                </div>
-            </div>
-            <form class="form formularioIntermediador" role="form" method="post" action="control/intermediadorController.php" id="formularioCadastroIntermediador">
-                <input type="hidden" name="req" value="cadastrarIntermediador">
-                <input type="hidden" name="validacao" value="validacao">
-                <div class="form-group">
-                    <div class="radio-inline">
-                        <label><input type="radio" name="tipoIntermediador" value="1" checked class="radioFisica"><strong>Pessoa física</strong></label>
-                    </div>
-                    <div class="radio-inline">
-                        <label><input type="radio" name="tipoIntermediador" value="2" class="radioJuridica"><strong>Pessoa jurídica</strong></label>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-md-3">
-                        <input type="text" id="nomeIntermediador" name="nomeIntermediador" placeholder="*Nome" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-md-3">
-                        <input type="text" id="cnpjIntermediador" name="cnpjIntermediador" placeholder="CNPJ" class="form-control cnpj campoCnpj">
-                        <input type="text" id="cpfIntermediador" name="cpfIntermediador" placeholder="CPF" class="form-control cpf campoCpf">
-                    </div>
-                    <div class="">
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" name="emailIntermediador" id="emailIntermediador" placeholder="E-mail" class="form-control">
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" name="telefoneCelularIntermediador" id="telefoneCelularIntermediador" placeholder="Telefone celular" class="form-control celular">
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" id="telefoneFixoIntermediador" name="telefoneFixoIntermediador" placeholder="Telefone fixo" class="form-control fixo">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-md-2">
-                        <button type="submit" class="btn btn-sm botao-padrao btn-block" id="botaoCadastroIntermediadorFisico">Cadastrar</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading"><strong>Intermediadores:</strong></div>
-        <div class="panel-body">
-            <div class="row mb-15">
-                <div class="col-md-3 pull-right">
-                    <button type="button" class="btn botao-padrao btn-block botaoCadastrar" id="cadastrarIntermediadorBotao">Cadastrar novo intermediador</button>
-                </div>
-            </div>
-            <hr>
-            <div class="row mb-15">
-                <div class="input-group col-md-3 pull-right">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                    <input name="consulta" id="txt_consulta" placeholder="Consultar" type="text" class="form-control">
-                </div>
-            </div>
-            <?php
-            $intermediadores = IntermediadorJuridico::listarIntermediador(unserialize($_SESSION['logado'])->getId());
-            ?>
-            <div class="container-fluid">
-                <div class="row">
-                    <?php foreach ($intermediadores as $i) { $tipo = $i->tipo; $id = $i->getId();?>
-                        
-                        <div class=" well well-sm col-md-3 lista">
-                            <ul class="list-group text-center lista">
-                                <li class="list-group-item"><?php echo "<img src='css/imagens/icones/intermediador/icone-intermediador-$tipo.png' class='img-thumbnail' alt='icone'>"?></li>
-                                <li class="list-group-item"><strong><?php echo $i->getNome(); ?></strong></li>
-                                <li class="list-group-item"><?php if(Validacao::encontraNumeros($i->getCpf())){echo $i->getCpf();}elseif(Validacao::encontraNumeros($i->getCnpj())){echo $i->getCnpj();}else{echo "-";}?></li>
-                                <li class="list-group-item"><?php if(!filter_var($i->getEmail(), FILTER_VALIDATE_EMAIL)){echo "-";} else{echo $i->getEmail();}?></li>
-                                <li class="list-group-item"><?php if(!Validacao::encontraNumeros($i->getTelefone())){echo "-";}else{echo $i->getTelefone();}?></li>
-                                <li class="list-group-item"><?php if(!Validacao::encontraNumeros($i->getTelefoneFixo())){echo "-";}else{echo $i->getTelefoneFixo();}?></li>
-                                <li class="list-group-item">
-                                    <form action="dashboard.php?pagina=intermediador-editar" method="post">
-                                        <a href="control/intermediadorController.php?req=excluir&id=<?php echo $id;?>" class="btn btn-sm btn-danger btn-apagar">Excluir</a>
-                                        <input type="hidden" value="<?php echo $id;?>" name="id">
-                                        <input type="hidden" value="<?php echo $tipo;?>" name="tipo_intermediador">
-                                        <button type="submit" class="btn btn-sm botao-padrao"> Editar </button>
-                                    </form>
-                                </li>
-                            </ul>
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <div class="animated-radio-button">
+                            <label>
+                                <input type="radio" name="tipoIntermediador" value="1" checked class="radioFisica"><span class="label-text">Pessoa física</span>
+                            </label>
                         </div>
-                    <?php } ?>
+                    </div>
                 </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <div class="animated-radio-button">
+                            <label>
+                                <input type="radio" name="tipoIntermediador" value="2" class="radioJuridica"><span class="label-text">Pessoa júridica</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="nomeIntermediador">*Nome</label>
+                        <input type="text" id="nomeIntermediador" name="nomeIntermediador" placeholder="Digite o nome do intermediador" class="form-control">
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <div class="campoCnpj">
+                            <label for="cnpjIntermediador">CNPJ</label>
+                            <input type="text" id="cnpjIntermediador" name="cnpjIntermediador" placeholder="Digite o CNPJ do intermediador" class="form-control cnpj campoCnpj">
+                        </div>
+                        <div class="campoCpf">
+                            <label for="cpfIntermediador">CPF</label>
+                            <input type="text" id="cpfIntermediador" name="cpfIntermediador" placeholder="Digite o CPF do intermediador" class="form-control cpf campoCpf">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="emailIntermediador">E-mail</label>
+                        <input type="text" name="emailIntermediador" id="emailIntermediador" placeholder="Digite o e-mail do intermediador" class="form-control">
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="telefoneCelularIntermediador">Telefone celular</label>
+                        <input type="text" name="telefoneCelularIntermediador" id="telefoneCelularIntermediador" placeholder="Digite o telefone celular do intermediador" class="form-control celular">
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="telefoneFixoIntermediador">Telefone fixo</label>
+                        <input type="text" id="telefoneFixoIntermediador" name="telefoneFixoIntermediador" placeholder="Digite o telefone fixo do intermediador" class="form-control fixo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" id="botaoCadastroIntermediadorFisico">Cadastrar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+    <hr>
+</div>
+
+<!-- BOTÃO PARA FORMUÁRIO DE CADASTRO -->
+<div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <button type="button" class="btn btn-primary btn-block botaoCadastrar" id="cadastrarImovelBotao">Cadastrar novo intermediador</button>
             </div>
         </div>
     </div>
+</div>
+
+<!-- INPUT PESQUISA -->
+<div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group input-group">
+                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-search"></i></span></div>
+                <input name="consulta" id="txt_consulta" placeholder="Pesquise um intermediador" type="text" class="form-control">
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php
+$intermediadores = IntermediadorJuridico::listarIntermediador(unserialize($_SESSION['logado'])->getId());
+?>
+
+<div class="row">
+
+    <?php
+    foreach ($intermediadores as $i) {
+    $tipo = $i->tipo;
+
+    if($tipo == 1){
+        $icon = "user";
+    }else{
+        $icon = "building";
+    }
+
+    $id = $i->getId();
+    ?>
+
+    <div class="col-md-3 lista m-bot-20">
+        <div class="card">
+
+            <div class="card-header">
+
+                <div class="pull-right">
+                    <form action="dashboard.php?pagina=intermediador-editar" method="post">
+                        <input type="hidden" value="<?php echo $id;?>" name="id">
+                        <input type="hidden" value="<?php echo $tipo;?>" name="tipo_intermediador">
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-primary"> <i class="fa fa-lg fa-edit"></i> </button>
+                    </form>
+                    <a class="btn btn-danger btn-apagar" href="control/intermediadorController.php?req=excluir&id=<?php echo $id;?>"">
+                        <i class="fa fa-lg fa-trash"></i>
+                    </a>
+                </div>
+            </div>
+
+            <br><br><br><br>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <i class="fa fa-<?php echo $icon; ?> fa-2x color-verde"></i>
+                    <span class="span-title"> <?php echo $i->getNome(); ?></span>
+                </div>
+            </div>
+
+        </div>
+        <div class="card-body informacoes" id="<?php echo $id; ?>">
+            <ul class="list-group">
+                <?php if($tipo == 1){ ?>
+                    <li class="list-group-item"><strong>CPF:</strong> <?php echo $i->getCpf();?></li>
+                <?php } else{?>
+                    <li class="list-group-item"><strong>CNPJ:</strong> <?php echo $i->getCnpj();?></li>
+                <?php } ?>
+                <li class="list-group-item"><strong>E-MAIL:</strong> <?php echo $i->getEmail();?></li>
+                <li class="list-group-item"><strong>TEL. CELULAR:</strong> <?php echo $i->getTelefone();?></li>
+                <li class="list-group-item"><strong>TEL. FIXO:</strong> <?php echo $i->getTelefoneFixo();?></li>
+            </ul>
+        </div>
+
+        <div class="card-footer text-right">
+            <div data-id="<?php echo $id; ?>">
+                <a href="#" class="detalhes">Mostrar mais</a>
+            </div>
+        </div>
+    </div>
+</div>
+<?php } ?>
 </div>
 <script src="js/validacao-formulario/js.validar-formulario-intermediador.js"></script>
 

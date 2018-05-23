@@ -112,6 +112,34 @@ $(document).ready(function () {
             $("#total").attr("placeholder", "Valor líquido: "+ converteFloatMoeda(valorTotal));
         }
     });
+
+    $(document).ready(function(){
+        var date_input=$('input[name="dataInicial"]'); //our date input has the name "date"
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        var options={
+            format: 'dd/mm/yyyy',
+            language: 'pt-BR',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+            orientation: "bottom right"
+        };
+        date_input.datepicker(options);
+    });
+
+    $(document).ready(function(){
+        var date_input=$('input[name="dataFinal"]'); //our date input has the name "date"
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        var options={
+            format: 'dd/mm/yyyy',
+            language: 'pt-BR',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+            orientation: "bottom right"
+        };
+        date_input.datepicker(options);
+    });
 });
 
 

@@ -22,7 +22,7 @@ class Contrato {
         foreach ($select as $r) {
             $imovel = new Apartamento($r['id'], $r['identificacao'], $r['cep'], $r['sigla_estado'], $r['cidade'], $r['bairro'], $r['rua'], $r['numero'], $r['id_usuario'], $r['edificio'], $r['bloco'], $r['numero_ap']);
             $imovel->tipo = $r['tipo_imovel'];
-            $reserva = new Reserva($r['id'], $id_usuario, $r['data_inicial'], $r['data_final'], $imovel, $r['id_intermediador'], $r['porcentagem_intermediador'], $r['preco_diaria'], $r['taxa_limpeza'], $r['desconto']);
+            $reserva = new Reserva($r['id'], $id_usuario, $r['data_inicial'], $r['data_final'], $imovel, $r['id_intermediador'], $r['porcentagem_intermediador'], $r['preco_diaria'], $r['taxa_limpeza'], $r['desconto'], $r['locatario'], $r['total_depositado']);
         }
         return $reserva;
     }

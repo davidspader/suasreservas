@@ -6,61 +6,119 @@ if (!isset($imoveis[0])){
     header("Location: dashboard.php?pagina=imoveis");
 }
 ?>
-<div class="panel-group">
-    <div class="panel panel-default painel-formulario" id="formReserva">
-        <div class="panel-heading"><strong>Cadastrar Reserva:</strong></div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-3 pull-right">
-                    <button type="button" class="btn botao-padrao btn-block botaoCancelar">Cancelar cadastro</button>
-                </div>
+<div class="painel-formulario">
+
+    <!-- BOTÃO PARA CANCELAR FORMUÁRIO DE CADASTRO -->
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <button type="button" class="btn btn-primary btn-block botaoCancelar">Cancelar cadastro</button>
             </div>
-            <form action="control/reservaController.php" method="post" id="cadastroReserva" role="form" class="formularioReserva">
-                <input type="hidden" name="req" value="cadastrarReserva">
-                <input type="hidden" name="validacao" value="validacao">
-                <div class="form-group row">
-                    <div class="col-md-3">
-                        <select name="imovel" class="form-control text-center" id="imovel">
-                            <option selected>*Imóvel</option>
+        </div>
+    </div>
+    <div>
+        <!-- FORMULÁRIO DE CADASTRO -->
+        <form action="control/reservaController.php" method="post" id="cadastroReserva" role="form" class="formularioReserva">
+            <input type="hidden" name="req" value="cadastrarReserva">
+            <input type="hidden" name="validacao" value="validacao">
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="imovel">Imóvel</label>
+                        <select name="imovel" class="form-control" id="imovel">
+                            <option value="0" selected>Selecione um imóvel</option>
                             <?php
                             foreach ($imoveis as $i) {
                                 $id = $i->getId();
                                 $imovel = $i->getIdentificacao();
-                                echo "<option value='$id'>$imovel</option>";
+                                if($id == $_GET['idImovel']){
+                                    echo "<option value='$id' selected>$imovel</option>";
+                                }else{
+                                    echo "<option value='$id'>$imovel</option>";
+                                }
+
                             }
                             ?>
                         </select>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <div class="col-md-3">
-                        <input type="text" id="dataInicial" name="dataInicial" placeholder="*Data inicial" class="total form-control data">
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" id="dataFinal" name="dataFinal" placeholder="*Data final" class="total form-control data">
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" id="nomeLocatario" name="nomeLocatario" placeholder="Nome do locatário" class="form-control">
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="dataInicial">*Data inicial</label>
+                        <input class="form-control total data" id="dataInicial" name="dataInicial" type="text" placeholder="Selecione a data inicial da reserva">
                     </div>
                 </div>
-                <div class="form-group row">
-                    <div class="col-md-3">
-                        <input type="text" id="precoDiaria" name="precoDiaria" placeholder="*Preço diária" class="total form-control valorReal">
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" id="taxaLimpeza" name="taxaLimpeza" placeholder="Taxa de limpeza" class="total form-control valorReal">
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" id="desconto" name="desconto" placeholder="Desconto" class="total form-control valorReal">
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" id="totalDepositado" name="totalDepositado" placeholder="Total depositado" class="total form-control valorReal">
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="dataFinal">*Data final</label>
+                        <input class="form-control total data" id="dataFinal" name="dataFinal" type="text" placeholder="Selecione a data final da reserva">
                     </div>
                 </div>
-                <div class="form-group row">
-                    <div class="col-md-3">
-                        <select name="intermediador" class="form-control text-center">
-                            <option value="0" selected>Intermediador</option>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="nomeLocatario">Locatario</label>
+                        <input type="text" id="nomeLocatario" name="nomeLocatario" placeholder="Digite o nome do locatário" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="precoDiaria">*Preço da diária</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+                            <input type="text" id="precoDiaria" name="precoDiaria" placeholder="Digite o preço da diária" class="total form-control valorReal">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="taxaLimpeza">Taxa de limpeza</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+                            <input type="text" id="taxaLimpeza" name="taxaLimpeza" placeholder="Digite a taxa de limpeza" class="total form-control valorReal">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="desconto">Desconto</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+                            <input type="text" id="desconto" name="desconto" placeholder="Digite o desconto" class="total form-control valorReal">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="totalDepositado">Total depositado</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+                            <input type="text" id="totalDepositado" name="totalDepositado" placeholder="Digite o total já depositado" class="total form-control valorReal">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="intermediador">Intermediador</label>
+                        <select name="intermediador" id="intermediador" class="form-control">
+                            <option value="0" selected>Selecione um intermediador</option>
                             <?php
                             foreach ($intermediadores as $i) {
                                 $id = $i->getId();
@@ -70,127 +128,208 @@ if (!isset($imoveis[0])){
                             ?>
                         </select>
                     </div>
-                    <div class="col-md-3">
-                        <input type="text" id="porcentagemIntermediador" name="porcentagemIntermediador" placeholder="Porcentagem intermediador" class="total form-control">
-                    </div>
                 </div>
-                <div class="form-group row">
-                    <div class="col-md-3">
-                        <input type="text" id="qtdDiarias"  placeholder="Quantidade de diárias" disabled class="form-control">
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" id="valorIntermediador" placeholder="Valor do intermediador" disabled class="form-control valorReal">
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" id="TotalReceber" placeholder="Valor a receber" disabled class="form-control valorReal">
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" id="total" placeholder="Valor líquido" disabled class="form-control valorReal">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-md-2">
-                        <button type="submit" class="btn btn-sm botao-padrao btn-block" id="botaoCadastroReserva">Cadastrar</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading"><strong>Reservas:</strong></div>
-        <div class="panel-body">
-            <div class="row mb-15">
-                <div class="col-md-3 pull-right">
-                    <button type="button" class="botaoCadastrar btn botao-padrao btn-block">Cadastrar nova reserva</button>
-                </div>
-            </div>
-            <hr>
-            <div class="row mb-15">
+
                 <div class="col-md-3">
-                    <select name="selectImovel" class="form-control text-center selectImovel">
-                        <option value="0" selected>Selecione um imóvel</option>
-                        <?php
-                        foreach ($imoveis as $i) {
-                            $id = $i->getId();
-                            $imovel = $i->getIdentificacao();
-                            if($id == $_GET['idImovel']){
-                                echo "<option value='$id' selected>$imovel</option>";
-                            }else{
-                                echo "<option value='$id'>$imovel</option>";
-                            }
-                            
-                        }
-                        ?>
-                    </select>
-                </div>
-                <div class="input-group col-md-3 pull-right">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                    <input name="consulta" id="txt_consulta" placeholder="Consultar" type="text" class="form-control">
+                    <div class="form-group">
+                        <label for="porcentagemIntermediador">Porcentagem do intermediador</label>
+                        <div class="input-group">
+                            <input type="text" id="porcentagemIntermediador" name="porcentagemIntermediador" placeholder="Digite a porcentagem do intermediador" class="total form-control">
+                            <div class="input-group-prepend"><span class="input-group-text">%</span></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <?php
-                    if(isset($_GET['idImovel'])){
-                        $id_imovel = $_GET['idImovel'];
-                        if(!Validacao::verificarInteiro($id_imovel)){
-                            header("Location: ../dashboard.php?pagina=reservas");
-                            die();
-                        }
-                        $reservas = Reserva::listarReservas(unserialize($_SESSION['logado'])->getId(), $id_imovel);
-                        if(empty($reservas)){
-                            echo "este imóvel não possui reservas";
-                        }else{ 
-                            foreach ($reservas as $r){ 
-                                $id = $r->getId(); 
-                                $qtdDias = Validacao::verificaQuantidadeDias($r->getDataInicial(), $r->getDataFinal());
-                                $valorTotal = $qtdDias*$r->getPrecoDiaria()-$r->getDesconto();
 
-                                $valorIntermediador = ($valorTotal / 100) * $r->getPorcentagemIntermediador();
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="qtdDiarias">Diárias</label>
+                        <input type="text" id="qtdDiarias" disabled class="form-control">
+                    </div>
+                </div>
 
-                                $valorParaReceber = $valorTotal+$r->getTaxaLimpeza()-$r->getTotalDepositado()-$valorIntermediador;
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="valorIntermediador">Valor do intermediador</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+                            <input type="text" id="valorIntermediador" disabled class="form-control valorReal">
+                        </div>
+                    </div>
+                </div>
 
-                                $valorLiquido = $valorTotal+$r->getTaxaLimpeza()-$valorIntermediador;
-                            ?>
-                            <div class=" well well-sm col-md-3 lista">
-                                <ul class="list-group text-center lista">
-                                    <li class="list-group-item"><?php echo "<img src='css/imagens/icones/reserva/icone-reserva.png' class='img-thumbnail' alt='icone'>"?></li>
-                                    <li class="list-group-item"><strong>Data Inicial: </strong><?php echo Validacao::transformaTimestampEmData($r->getDataInicial()); ?></li>
-                                    <li class="list-group-item"><strong>Data Final: </strong><?php echo Validacao::transformaTimestampEmData($r->getDataFinal()); ?></li>
-                                    <li class="list-group-item"><strong>Diárias: </strong><?php echo $qtdDias; ?></li>
-                                    <li class="list-group-item"><strong>Locatário: </strong><?php echo $r->getLocatario(); ?></li>
-                                    <li class="list-group-item"><strong>Intermediador: </strong><?php if($r->getIntermediador() == null){ echo $r->nome;}else{ echo Reserva::buscarIntermediadorNome($r->getIntermediador());}?></li>
-                                    <li class="list-group-item"><strong>P. intermediador: </strong><?php echo $r->getPorcentagemIntermediador(); ?>%</li>
-                                    <li class="list-group-item"><strong>Valor Intermediador: </strong>R$ <?php echo number_format($valorIntermediador, 2, ',', '.');?></li>
-                                    <li class="list-group-item"><strong>Preço da diária: </strong>R$ <?php echo number_format($r->getPrecoDiaria(), 2, ',', '.'); ?></li>
-                                    <li class="list-group-item"><strong>Taxa de limpeza: </strong>R$ <?php echo number_format($r->getTaxaLimpeza(), 2, ',', '.'); ?></li>
-                                    <li class="list-group-item"><strong>Desconto: </strong>R$ <?php echo number_format($r->getDesconto(), 2, ',', '.');?></li>
-                                    <li class="list-group-item"><strong>Já depositado: </strong>R$ <?php echo number_format($r->getTotalDepositado(), 2, ',', '.');?></li>
-                                    <li class="list-group-item"><strong>Valor a receber: </strong>R$ <?php echo number_format($valorParaReceber, 2, ',', '.');?></li>
-                                    <li class="list-group-item"><strong>Valor líquido: </strong>R$ <?php echo number_format($valorLiquido, 2, ',', '.');?></li>
-                                    <li class="list-group-item">
-                                        <form action="dashboard.php?pagina=criar-contrato" method="post">
-                                        <input type="hidden" value="<?php echo $id;?>" name="id">
-                                        <input type="hidden" value="<?php echo $id_imovel;?>" name="idImovel">
-                                        <button type="submit" class="btn btn-sm botao-padrao"> Criar contrato </button>
-                                        </form>
-                                    <li class="list-group-item">
-                                        <form action="dashboard.php?pagina=reserva-editar" method="POST">
-                                            <a href="control/reservaController.php?req=excluirReserva&id=<?php echo $id;?>&id_imovel=<?php echo $id_imovel;?>" class="btn btn-sm btn-danger btn-apagar">Excluir</a>
-                                            <input type="hidden" value="<?php echo $id;?>" name="id">
-                                            <button type="submit" class="btn btn-sm botao-padrao"> Editar </button>
-                                        </form>
-                                    </li>
-                            </ul>
-                            </div>
-                            <?php }
-                            }
-                    }?>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="TotalReceber">Valor a receber</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+                            <input type="text" id="TotalReceber" disabled class="form-control valorReal">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="total">Valor líquido</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+                            <input type="text" id="total" disabled class="form-control valorReal">
+                        </div>
+                    </div>
                 </div>
             </div>
-            
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" id="botaoCadastroReserva">Cadastrar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+    <hr>
+</div>
+
+<!-- BOTÃO PARA FORMUÁRIO DE CADASTRO -->
+<div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <button type="button" class="btn btn-primary btn-block botaoCadastrar" id="cadastrarImovelBotao">Cadastrar novo intermediador</button>
+            </div>
         </div>
     </div>
+</div>
+
+<!-- INPUT PESQUISA -->
+<div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group input-group">
+                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-search"></i></span></div>
+                <input name="consulta" id="txt_consulta" placeholder="Pesquise uma reserva" type="text" class="form-control">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    <?php
+    foreach ($imoveis as $i) {
+    $tipo = $i->tipo;
+
+    if($tipo == 1){
+        $icon = "home";
+    }else{
+        $icon = "building";
+    }
+
+    $id = $i->getId();
+    ?>
+    <div class="col-md-2">
+        <div class="lista m-bot-20">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-<?php echo $icon; ?> fa-2x color-verde"></i>
+                    <span class="span-title"> <?php echo $i->getIdentificacao(); ?></span>
+                </div>
+                <div class="card-body">
+                    <a href="dashboard.php?pagina=reservas&idImovel=<?php echo $id; ?>" class="btn btn-block btn-primary">Visualizar reservas</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php } ?>
+</div>
+
+<div class="row">
+<?php
+if(isset($_GET['idImovel'])){
+$id_imovel = $_GET['idImovel'];
+if(!Validacao::verificarInteiro($id_imovel)){
+    header("Location: ../dashboard.php?pagina=reservas");
+    die();
+}
+$reservas = Reserva::listarReservas(unserialize($_SESSION['logado'])->getId(), $id_imovel);
+if(empty($reservas)){
+    echo "este imóvel não possui reservas";
+}else{
+    foreach ($reservas as $r){
+        $id = $r->getId();
+        $qtdDias = Validacao::verificaQuantidadeDias($r->getDataInicial(), $r->getDataFinal());
+        $valorTotal = $qtdDias*$r->getPrecoDiaria()-$r->getDesconto();
+
+        $valorIntermediador = ($valorTotal / 100) * $r->getPorcentagemIntermediador();
+
+        $valorParaReceber = $valorTotal+$r->getTaxaLimpeza()-$r->getTotalDepositado()-$valorIntermediador;
+
+        $valorLiquido = $valorTotal+$r->getTaxaLimpeza()-$valorIntermediador;
+        ?>
+    <div class="col-md-3 lista m-bot-20">
+        <div class="card">
+
+            <div class="card-header">
+
+                <div class="pull-right">
+                    <div class="btn-group">
+                        <form action="dashboard.php?pagina=criar-contrato" method="post">
+                            <input type="hidden" value="<?php echo $id;?>" name="id">
+                            <input type="hidden" value="<?php echo $id_imovel;?>" name="idImovel">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-lg fa-handshake"></i></button>
+                        </form>
+                        <form action="dashboard.php?pagina=reserva-editar" method="post">
+                            <input type="hidden" value="<?php echo $id;?>" name="id">
+                            <button type="submit" class="btn btn-primary"> <i class="fa fa-lg fa-edit"></i></button>
+                        </form>
+                        <a class="btn btn-danger" href="control/reservaController.php?req=excluir&id=<?php echo $id;?>">
+                            <i class="fa fa-lg fa-trash"></i>
+                        </a>
+                    </div>
+                </div>
+
+            <br><br><br><br>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <i class="fa fa-calendar fa-2x color-verde"></i>
+                    <span class="span-title">De <?php echo Validacao::transformaTimestampEmData($r->getDataInicial());?> a <?php echo Validacao::transformaTimestampEmData($r->getDataFinal());?></span>
+                </div>
+            </div>
+
+        </div>
+        <div class="card-body informacoes" id="<?php echo $id; ?>">
+            <ul class="list-group">
+                <li class="list-group-item"><strong>DIÁRIAS:</strong> <?php echo $qtdDias;?></li>
+                <li class="list-group-item"><strong>LOCATÁRIO:</strong> <?php echo $r->getLocatario(); ?></li>
+                <li class="list-group-item"><strong>INTERMEDIADOR:</strong>  <?php if($r->getIntermediador() == null){ echo $r->nome;}else{ echo Reserva::buscarIntermediadorNome($r->getIntermediador());}?></li>
+                <li class="list-group-item"><strong>VALOR INTERMEDIADOR:</strong>R$ <?php echo number_format($valorIntermediador, 2, ',', '.');?></li>
+                <li class="list-group-item"><strong>P. INTERMEDIADOR:</strong>  <?php echo $r->getPorcentagemIntermediador(); ?>%</li>
+                <li class="list-group-item"><strong>PREÇO DIARIA:</strong>R$ <?php echo number_format($r->getPrecoDiaria(), 2, ',', '.'); ?></li>
+                <li class="list-group-item"><strong>TAXA DE LIMPEZA:</strong>R$ <?php echo number_format($r->getTaxaLimpeza(), 2, ',', '.'); ?></li>
+                <li class="list-group-item"><strong>DESCONTO:</strong>R$ <?php echo number_format($r->getDesconto(), 2, ',', '.');?></li>
+                <li class="list-group-item"><strong>JÁ DEPOSITADO:</strong>R$ <?php echo number_format($r->getTotalDepositado(), 2, ',', '.');?></li>
+                <li class="list-group-item"><strong>A RECEBER:</strong>R$ <?php echo number_format($valorParaReceber, 2, ',', '.');?></li>
+                <li class="list-group-item"><strong>VALOR LÍQUIDO:</strong>R$ <?php echo number_format($valorLiquido, 2, ',', '.');?></li>
+            </ul>
+        </div>
+        <div class="card-footer text-right">
+            <div data-id="<?php echo $id; ?>">
+                <a href="#" class="detalhes">Mostrar mais</a>
+            </div>
+        </div>
+    </div>
+</div>
+            <?php }
+        }
+    }?>
 </div>
 <script src="js/js.page-reservas.js"></script>
 <script src="js/validacao-formulario/js.validar-formulario-reserva.js"></script>
