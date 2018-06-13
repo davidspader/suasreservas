@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f1a112c-cd7b-4219-8b38-c839160eac3e" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reservas.php" beforeDir="false" afterPath="$PROJECT_DIR$/reservas.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,11 +24,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reservas.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="reservas.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/reservas.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="251" column="4" selection-start-line="251" selection-start-column="4" selection-end-line="251" selection-end-column="4" />
+            <state relative-caret-position="596">
+              <caret line="234" column="21" lean-forward="true" selection-start-line="234" selection-start-column="21" selection-end-line="234" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/css/main.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="844">
+              <caret line="14847" column="29" lean-forward="true" selection-start-line="14847" selection-start-column="29" selection-end-line="14847" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reservas1.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/reservas1.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="401">
+              <caret line="125" column="22" lean-forward="true" selection-start-line="108" selection-start-column="12" selection-end-line="125" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -58,6 +78,7 @@
       <find>select</find>
       <find>col-md</find>
       <find>edit</find>
+      <find>cadastrar</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -83,7 +104,6 @@
         <option value="$PROJECT_DIR$/../docs/form-components.html" />
         <option value="$PROJECT_DIR$/imovel-editar.php" />
         <option value="$PROJECT_DIR$/intermediador-editar.php" />
-        <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/reservas1.php" />
         <option value="$PROJECT_DIR$/js/js.page-reservas.js" />
         <option value="$PROJECT_DIR$/imoveis.php" />
@@ -97,6 +117,7 @@
         <option value="$PROJECT_DIR$/model/Contrato.php" />
         <option value="$PROJECT_DIR$/dashboard.php" />
         <option value="$PROJECT_DIR$/reservas.php" />
+        <option value="$PROJECT_DIR$/css/main.css" />
       </list>
     </option>
   </component>
@@ -129,6 +150,11 @@
             <path>
               <item name="suasreservas" type="b2602c69:ProjectViewProjectNode" />
               <item name="suasreservas" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="suasreservas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="suasreservas" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -200,12 +226,12 @@
       <workItem from="1527012035122" duration="3045000" />
       <workItem from="1527020263087" duration="606000" />
       <workItem from="1527090179269" duration="3335000" />
-      <workItem from="1528912274063" duration="644000" />
+      <workItem from="1528912274063" duration="2734000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88502000" />
+    <option name="totallyTimeSpent" value="90592000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -421,13 +447,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="817">
-          <caret line="14838" selection-start-line="14838" selection-end-line="14838" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../docs/form-custom.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="472">
@@ -489,13 +508,6 @@
         <state relative-caret-position="-764" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/padrao-estilo.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/reserva-editar1.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -515,13 +527,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="596">
           <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reservas1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="176" column="47" lean-forward="true" selection-start-line="172" selection-start-column="40" selection-end-line="176" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -588,10 +593,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/padrao-estilo.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reservas1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="125" column="22" lean-forward="true" selection-start-line="108" selection-start-column="12" selection-end-line="125" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/reservas.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="251" column="4" selection-start-line="251" selection-start-column="4" selection-end-line="251" selection-end-column="4" />
+        <state relative-caret-position="596">
+          <caret line="234" column="21" lean-forward="true" selection-start-line="234" selection-start-column="21" selection-end-line="234" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="844">
+          <caret line="14847" column="29" lean-forward="true" selection-start-line="14847" selection-start-column="29" selection-end-line="14847" selection-end-column="29" />
         </state>
       </provider>
     </entry>

@@ -219,9 +219,29 @@ if (!isset($imoveis[0])){
         </div>
     </div>
 </div>
+<div class="row select-mobile">
+    <div class="col-md-3">
+        <div class="form-group">
+            <select name="selectImovel" class="form-control selectImovel">
+                <option value="0" selected>Selecione um imóvel</option>
+                <?php
+                foreach ($imoveis as $i) {
+                    $id = $i->getId();
+                    $imovel = $i->getIdentificacao();
+                    if($id == $_GET['idImovel']){
+                        echo "<option value='$id' selected>$imovel</option>";
+                    }else{
+                        echo "<option value='$id'>$imovel</option>";
+                    }
 
-<div class="row">
+                }
+                ?>
+            </select>
+        </div>
+    </div>
+</div>
 
+<div class="row select-pc">
     <?php
     foreach ($imoveis as $i) {
     $tipo = $i->tipo;
