@@ -149,7 +149,7 @@ $intermediadores = IntermediadorJuridico::listarIntermediador(unserialize($_SESS
     $id = $i->getId();
     ?>
 
-    <div class="col-md-3 lista m-bot-20">
+    <div class="col-md-3 lista m-bot-20" id="<?php echo $id; ?>">
         <div class="card">
 
             <div class="card-header">
@@ -170,14 +170,14 @@ $intermediadores = IntermediadorJuridico::listarIntermediador(unserialize($_SESS
             <br><br><br><br>
 
             <div class="row">
-                <div class="col-md-9">
-                    <i class="fa fa-<?php echo $icon; ?> fa-2x color-verde"></i>
-                    <span class="span-title"> <?php echo $i->getNome(); ?></span>
+                <div class="p-10">
+                    <i class="fa fa-<?php echo $icon; ?> fa-2x color-verde"></i><br>
+                    <span class="span-title-2"> <?php echo $i->getNome(); ?></span>
                 </div>
             </div>
 
         </div>
-        <div class="card-body informacoes" id="<?php echo $id; ?>">
+        <div class="card-body informacoes" id="toggle-<?php echo $id; ?>">
             <ul class="list-group">
                 <?php if($tipo == 1){ ?>
                     <li class="list-group-item"><strong>CPF:</strong> <?php echo $i->getCpf();?></li>
@@ -192,7 +192,7 @@ $intermediadores = IntermediadorJuridico::listarIntermediador(unserialize($_SESS
 
         <div class="card-footer text-right">
             <div data-id="<?php echo $id; ?>">
-                <a href="#" class="detalhes">Mostrar mais</a>
+                <a href="#<?php echo $id; ?>" class="detalhes">Mostrar mais</a>
             </div>
         </div>
     </div>

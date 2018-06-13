@@ -254,7 +254,7 @@ if (!isset($imoveis[0])){
 
     $id = $i->getId();
     ?>
-    <div class="col-lg-2 col-md-3">
+    <div class="col-md-3">
         <div class="lista m-bot-20">
             <div class="card">
                 <div class="card-header">
@@ -294,7 +294,7 @@ if(empty($reservas)){
 
         $valorLiquido = $valorTotal+$r->getTaxaLimpeza()-$valorIntermediador;
         ?>
-    <div class="col-md-3 lista m-bot-20">
+    <div class="col-md-3 lista m-bot-20" id="<?php echo $id; ?>">
         <div class="card">
 
             <div class="card-header">
@@ -319,14 +319,14 @@ if(empty($reservas)){
             <br><br><br><br>
 
             <div class="row">
-                <div class="col-md-12">
-                    <i class="fa fa-calendar fa-2x color-verde"></i>
-                    <span class="span-title">De <?php echo Validacao::transformaTimestampEmData($r->getDataInicial());?> a <?php echo Validacao::transformaTimestampEmData($r->getDataFinal());?></span>
+                <div class="p-10">
+                    <i class="fa fa-calendar fa-2x color-verde"></i><br>
+                    <span class="span-title-2">De <?php echo Validacao::transformaTimestampEmData($r->getDataInicial());?> a <?php echo Validacao::transformaTimestampEmData($r->getDataFinal());?></span>
                 </div>
             </div>
 
         </div>
-        <div class="card-body informacoes" id="<?php echo $id; ?>">
+        <div class="card-body informacoes" id="toggle-<?php echo $id; ?>">
             <ul class="list-group">
                 <li class="list-group-item"><strong>DIÁRIAS:</strong> <?php echo $qtdDias;?></li>
                 <li class="list-group-item"><strong>LOCATÁRIO:</strong> <?php echo $r->getLocatario(); ?></li>
@@ -343,7 +343,7 @@ if(empty($reservas)){
         </div>
         <div class="card-footer text-right">
             <div data-id="<?php echo $id; ?>">
-                <a href="#" class="detalhes">Mostrar mais</a>
+                <a href="#<?php echo $id; ?>" class="detalhes">Mostrar mais</a>
             </div>
         </div>
     </div>

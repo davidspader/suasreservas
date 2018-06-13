@@ -25,7 +25,7 @@ $(document).ready(function () {
 
 
     $( ".detalhes" ).click(function() {
-        var id = "#" + $(this).parent().data('id');
+        var id = "#toggle-" + $(this).parent().data('id');
         $(id).toggle();
         if($(this).text() === "Mostrar mais"){
             $(this).text("Mostrar menos");

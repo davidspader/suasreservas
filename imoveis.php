@@ -184,7 +184,7 @@ $imoveis = Apartamento::listarImovel(unserialize($_SESSION['logado'])->getId());
         $id = $i->getId();
     ?>
 
-    <div class="col-md-3 lista m-bot-20">
+    <div class="col-md-3 lista m-bot-20" id="<?php echo $id; ?>">
         <div class="card">
 
             <div class="card-header">
@@ -205,14 +205,14 @@ $imoveis = Apartamento::listarImovel(unserialize($_SESSION['logado'])->getId());
                 <br><br><br><br>
 
                 <div class="row">
-                    <div class="col-md-9">
-                        <i class="fa fa-<?php echo $icon; ?> fa-2x color-verde"></i>
-                        <span class="span-title"> <?php echo $i->getIdentificacao(); ?></span>
+                    <div class="p-10">
+                        <i class="fa fa-<?php echo $icon; ?> fa-2x color-verde"></i><br>
+                        <span class="span-title-2"> <?php echo $i->getIdentificacao(); ?></span>
                     </div>
                 </div>
 
             </div>
-            <div class="card-body informacoes" id="<?php echo $id; ?>">
+            <div class="card-body informacoes" id="toggle-<?php echo $id; ?>">
                 <ul class="list-group">
                     <li class="list-group-item"><strong>CEP:</strong> <?php echo $i->getCep();?></li>
                     <li class="list-group-item"><strong>ESTADO:</strong> <?php echo $i->getSiglaEstado(); ?></li>

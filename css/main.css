@@ -14824,6 +14824,16 @@ be a descendant of the grid when it is being dragged.
   color: #00635a;
 }
 
+.span-title-2{
+  font-weight: bold;
+  font-size: 14pt;
+  color: #00635a;
+}
+
+.p-10{
+  padding: 10px;
+}
+
 strong{
   color: #00635a;
 }
