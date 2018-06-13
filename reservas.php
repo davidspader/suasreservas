@@ -202,7 +202,7 @@ if (!isset($imoveis[0])){
         <div class="col-md-3"></div>
         <div class="col-md-3">
             <div class="form-group">
-                <button type="button" class="btn btn-primary btn-block botaoCadastrar" id="cadastrarImovelBotao">Cadastrar novo intermediador</button>
+                <button type="button" class="btn btn-primary btn-block botaoCadastrar" id="cadastrarImovelBotao">Cadastrar nova reserva</button>
             </div>
         </div>
     </div>
@@ -234,7 +234,7 @@ if (!isset($imoveis[0])){
 
     $id = $i->getId();
     ?>
-    <div class="col-md-2">
+    <div class="col-lg-2 col-md-3">
         <div class="lista m-bot-20">
             <div class="card">
                 <div class="card-header">
@@ -249,6 +249,7 @@ if (!isset($imoveis[0])){
     </div>
     <?php } ?>
 </div>
+<hr>
 
 <div class="row">
 <?php
