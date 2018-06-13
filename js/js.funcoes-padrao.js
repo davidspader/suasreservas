@@ -33,4 +33,8 @@ $(document).ready(function () {
             $(this).text("Mostrar mais");
         }
     });
+
+    if (!window.matchMedia("(min-width: 980px)").matches) {
+        $("body").addClass("sidenav-closed");
+    }
 });
