@@ -258,8 +258,8 @@ if (!isset($imoveis[0])){
         <div class="lista m-bot-20">
             <div class="card">
                 <div class="card-header">
-                    <i class="fa fa-<?php echo $icon; ?> fa-2x color-verde"></i>
-                    <span class="span-title"> <?php echo $i->getIdentificacao(); ?></span>
+                    <i class="fa fa-<?php echo $icon; ?> fa-2x color-verde"></i><br>
+                    <span class="span-title-2"> <?php echo $i->getIdentificacao(); ?></span>
                 </div>
                 <div class="card-body">
                     <a href="dashboard.php?pagina=reservas&idImovel=<?php echo $id; ?>" class="btn btn-block btn-primary">Visualizar reservas</a>
