@@ -11,7 +11,10 @@ $r = Reserva::listarReserva(unserialize($_SESSION['logado'])->getId(), $_POST['i
 $imoveis = Apartamento::listarImovel(unserialize($_SESSION['logado'])->getId());
 $intermediadores = IntermediadorJuridico::listarIntermediador(unserialize($_SESSION['logado'])->getId());
 ?>
-<div>
+<div class="card panel-20">
+
+    <h5 class="card-title span-title-2">Editar reserva:</h5>
+    <hr>
     <!-- FORMULÁRIO DE CADASTRO -->
     <form action="control/reservaController.php" method="post" id="cadastroReserva" role="form" class="formularioReserva">
         <input type="hidden" name="req" value="cadastrarReserva">

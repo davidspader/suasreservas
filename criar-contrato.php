@@ -3,7 +3,11 @@ if (!isset($_SESSION['logado']) || !isset($_POST['id'])) {
     header("Location: index.php");
 }
 ?>
-<div>
+<div class="card panel-20">
+
+    <h5 class="card-title span-title-2">Criar contrato:</h5>
+    <span>Nos informe as informações do locatário.</span>
+    <hr>
     <form class="form formularioLocatario" role="form" method="post" action="control/contratoController.php">
         <input type="hidden" name="id" value="<?php echo $_POST['id']; ?>">
         <input type="hidden" name="idImovel" value="<?php echo $_POST['idImovel']; ?>">
@@ -13,7 +17,7 @@ if (!isset($_SESSION['logado']) || !isset($_POST['id'])) {
             <div class="col-md-3">
                 <div class="form-group">
                     <label for="nomeLocatario">*Nome</label>
-                    <input type="text" id="nomeLocatario" name="nomeLocatario" placeholder="Digite o nome do locatário" class="form-control">
+                    <input type="text" id="nomeLocatario" name="nomeLocatario" value="<?php echo $_POST['locatario']; ?>" placeholder="Digite o nome do locatário" class="form-control">
                 </div>
             </div>
         </div>

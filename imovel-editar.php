@@ -8,7 +8,10 @@ if (!isset($_POST['id']) || !isset($_POST['tipo_imovel'])) {
 }
 $imovel = Apartamento::imovelDetalhe($_POST['id'], $_POST['tipo_imovel'], unserialize($_SESSION['logado'])->getId());
 ?>
-<div>
+<div class="card panel-20">
+
+    <h5 class="card-title span-title-2">Editar imóvel:</h5>
+    <hr>
     <form class="form formularioImovel" role="form" method="post" action="control/imovelController.php">
         <input type="hidden" name="req" value="editarImovel">
         <input type="hidden" name="validacao" value="validacao">

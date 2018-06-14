@@ -3,7 +3,10 @@ if (!isset($_SESSION['logado'])) {
     header("Location: index.php");
 }
 ?>
-<div class="painel-formulario">
+<div class="painel-formulario card panel-20">
+
+    <h5 class="card-title span-title-2">Cadastrar novo intermediador:</h5>
+    <hr>
 
     <!-- BOTÃO PARA CANCELAR FORMUÁRIO DE CADASTRO -->
     <div class="row">
@@ -24,7 +27,7 @@ if (!isset($_SESSION['logado'])) {
             <input type="hidden" name="validacao" value="validacao">
 
             <div class="row">
-                <div class="col-md-1">
+                <div class="col-md-4 form-inline m-bot-20">
                     <div class="form-group">
                         <div class="animated-radio-button">
                             <label>
@@ -32,10 +35,8 @@ if (!isset($_SESSION['logado'])) {
                             </label>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-md-2">
-                    <div class="form-group">
+                    <div class="form-group m-left-15">
                         <div class="animated-radio-button">
                             <label>
                                 <input type="radio" name="tipoIntermediador" value="2" class="radioJuridica"><span class="label-text">Pessoa júridica</span>
@@ -103,6 +104,11 @@ if (!isset($_SESSION['logado'])) {
     </div>
     <hr>
 </div>
+
+<div class="card panel-20">
+    <h5 class="card-title span-title-2">Intermediadores:</h5>
+    <span>Visualize, cadastre, exclua e atualize os seus intermediadores.</span>
+    <hr>
 
 <!-- BOTÃO PARA FORMUÁRIO DE CADASTRO -->
 <div>
@@ -199,5 +205,6 @@ $intermediadores = IntermediadorJuridico::listarIntermediador(unserialize($_SESS
 </div>
 <?php } ?>
 </div>
+
 <script src="js/validacao-formulario/js.validar-formulario-intermediador.js"></script>
 

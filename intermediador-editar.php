@@ -11,7 +11,10 @@ $i = IntermediadorJuridico::intermediadorDetalhe($_POST['id'], $_POST['tipo_inte
 $cpf = $i->getCpf();
 
 ?>
-<div>
+<div class="card panel-20">
+
+    <h5 class="card-title span-title-2">Editar intermediador:</h5>
+    <hr>
     <form class="form formularioIntermediador" role="form" method="post" action="control/intermediadorController.php" id="formularioCadastroIntermediador">
         <input type="hidden" name="req" value="editarIntermediador">
         <input type="hidden" name="validacao" value="validacao">
