@@ -336,8 +336,8 @@ if (!isset($imoveis[0])) {
                                             <button type="submit" class="btn btn-primary"><i
                                                         class="fa fa-lg fa-edit"></i></button>
                                         </form>
-                                        <a class="btn btn-danger"
-                                           href="control/reservaController.php?req=excluir&id=<?php echo $id; ?>">
+                                        <a class="btn btn-danger btn-apagar"
+                                           href="control/reservaController.php?req=excluirReserva&id=<?php echo $id; ?>&id_imovel=<?php echo $id_imovel; ?>">
                                             <i class="fa fa-lg fa-trash"></i>
                                         </a>
                                     </div>
