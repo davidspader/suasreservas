@@ -52,14 +52,14 @@ if (!isset($imoveis[0])){
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="dataInicial">*Data inicial</label>
-                        <input class="form-control total data" id="dataInicial" name="dataInicial" type="text" placeholder="Selecione a data inicial da reserva">
+                        <input class="form-control total data" id="dataInicial" name="dataInicial" autocomplete="off" type="text" placeholder="Selecione a data inicial da reserva">
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="dataFinal">*Data final</label>
-                        <input class="form-control total data" id="dataFinal" name="dataFinal" type="text" placeholder="Selecione a data final da reserva">
+                        <input class="form-control total data" id="dataFinal" name="dataFinal" autocomplete="off" type="text" placeholder="Selecione a data final da reserva">
                     </div>
                 </div>
 
