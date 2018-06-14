@@ -189,6 +189,7 @@ $selecionada = isset($paginas[$pagina]) ? $paginas[$pagina] : $paginas['reservas
 <!-- The javascript plugin to display page loading on top-->
 <script src="js/plugins/pace.min.js"></script>
 <script src="js/plugins/bootstrap-datepicker.min.js"></script>
+<script src="js/plugins/alert.js"></script>
 
 <!-- Scripts-->
 <script src="js/js.funcoes-padrao.js"></script>

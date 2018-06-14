@@ -14,8 +14,19 @@ $(document).ready(function () {
     });
     
     $(".btn-apagar").click(function(evento) {
-        if (!confirm("tem certeza que deseja excluir?"))
-          evento.preventDefault();
+        event.preventDefault();
+        swal({
+            title: "Você tem certeza?",
+            text: "Ao deletar, você não terá mais acesso a esse item!",
+            icon: "warning",
+            buttons: ["Cancelar!", "Confirmar!"],
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location.replace(this.href);
+                }
+            });
     });
 
     $('#txt_consulta').quicksearch('.lista');

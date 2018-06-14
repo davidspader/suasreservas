@@ -160,7 +160,7 @@ $intermediadores = IntermediadorJuridico::listarIntermediador(unserialize($_SESS
 
             <div class="card-header">
 
-                <div class="pull-right">
+                <div class="pull-right" id="teste">
                     <form action="dashboard.php?pagina=intermediador-editar" method="post">
                         <input type="hidden" value="<?php echo $id;?>" name="id">
                         <input type="hidden" value="<?php echo $tipo;?>" name="tipo_intermediador">
