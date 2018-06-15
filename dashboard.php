@@ -102,7 +102,11 @@ $selecionada = isset($paginas[$pagina]) ? $paginas[$pagina] : $paginas['reservas
     <script src="js/jquery-3.2.1.min.js"></script>
 
 </head>
+<?php if(isset($_COOKIE['class'])){ ?>
+    <body class="app sidebar-mini  <?php echo $_COOKIE['class']; ?>">
+<?php } else {?>
 <body class="app sidebar-mini">
+<?php } ?>
 <!-- Navbar-->
 <header class="app-header">
     <!-- Sidebar toggle button-->
