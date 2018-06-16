@@ -25,7 +25,7 @@ $intermediadores = IntermediadorJuridico::listarIntermediador(unserialize($_SESS
                 <div class="form-group">
                     <label for="imovel">Imóvel</label>
                     <select name="imovel" class="form-control" id="imovel">
-                        <option value="0" selected>Selecione um imóvel</option>
+                        <option value="" selected>Selecione um imóvel</option>
                         <?php
                         foreach ($imoveis as $i) {
                             $id = $i->getId();

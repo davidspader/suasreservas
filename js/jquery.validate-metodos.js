@@ -113,8 +113,9 @@ $(document).ready(function () {
     }, "Informe um CNPJ válido.");
 
     $.validator.addMethod("dataBR", function (value, element) {
-        if (value.length != 10)
+        if (value.length != 10){
             return false;
+        }
         // verificando data
         var data = value;
         var dia = data.substr(0, 2);
@@ -122,8 +123,9 @@ $(document).ready(function () {
         var mes = data.substr(3, 2);
         var barra2 = data.substr(5, 1);
         var ano = data.substr(6, 4);
-        if (data.length != 10 || barra1 != "/" || barra2 != "/" || isNaN(dia) || isNaN(mes) || isNaN(ano) || dia > 31 || mes > 12)
+        if (data.length != 10 || barra1 != "/" || barra2 != "/" || isNaN(dia) || isNaN(mes) || isNaN(ano) || dia > 31 || mes > 12){
             return false;
+        }
         if ((mes == 4 || mes == 6 || mes == 9 || mes == 11) && dia == 31)
             return false;
         if (mes == 2 && (dia > 29 || (dia == 29 && ano % 4 != 0)))
@@ -141,12 +143,27 @@ $(document).ready(function () {
     });
 
     $.validator.addMethod("compararData", function () {
-        var data_1 = new Date($("#dataInicial").val());
-        var data_2 = new Date($("#dataFinal").val());
-        if (data_1 > data_2) {
+        DAY = 1000 * 60 * 60  * 24
+
+        data1 = $("#dataInicial").val() + " 00:00";
+        data2 = $("#dataFinal").val() + " 00:00";
+
+        var nova1 = data1.toString().split('/');
+        Nova1 = nova1[1]+"/"+nova1[0]+"/"+nova1[2];
+
+        var nova2 = data2.toString().split('/');
+        Nova2 = nova2[1]+"/"+nova2[0]+"/"+nova2[2];
+
+        var d1 = new Date(Nova1);
+        var d2 = new Date(Nova2);
+
+        var qtdDias = Math.round((d2.getTime() - d1.getTime()) / DAY);
+
+        if(parseInt(qtdDias) < 0){
             return false;
         }
         return true;
+
     });
 
     $.validator.addMethod("apenasNumero", function (value) {
@@ -167,5 +184,38 @@ $(document).ready(function () {
 
         return false;
 
+    });
+
+    $.validator.addMethod("apenasNumero", function (value) {
+        if (isNaN(value)) {
+            return false;
+        }
+        return true;
+    });
+
+    $.validator.addMethod("telefone", function (value) {
+        if(value == "(__) _____-____" ||value == "(__) ____-____"){
+            return true;
+        }
+        var regex = "^\\([1-9]{2}\\) [2-9][0-9]{3,4}\\-[0-9]{4}$";
+        var regexp = new RegExp(regex);
+        var teste = regexp.exec(value);
+
+        if(teste != null) {
+            return true;
+        }
+
+        return false;
+
+    });
+    
+    $.validator.addMethod("sigla", function (value) {
+        sigla = value.toUpperCase();
+        var siglas = ["AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RO", "RS", "RR", "SC", "SE", "SP", "TO"];
+        for(i = 0; i < siglas.length; i++){
+            if(sigla == siglas[i]){
+                return true;
+            }
+        }
     });
 });

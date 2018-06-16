@@ -42,6 +42,9 @@ $(document).ready(function () {
             },
             numeroApImovel: {
                 number: true
+            },
+            estadoImovel:{
+                sigla: true
             }
         },
         messages: {
@@ -71,6 +74,9 @@ $(document).ready(function () {
             },
             numeroApImovel: {
                 number:"Deve conter apenas números"
+            },
+            estadoImovel:{
+                sigla: "Sigla inválida"
             }
         }
     });

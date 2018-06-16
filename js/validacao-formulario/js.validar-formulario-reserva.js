@@ -1,6 +1,9 @@
 $(document).ready(function () {
     $(".formularioReserva").validate({
         rules: {
+            imovel:{
+                required: true
+            },
             dataInicial: {
                 required: true, dataBR: true, compararData: true
             },
@@ -15,6 +18,9 @@ $(document).ready(function () {
             }
         },
         messages: {
+            imovel:{
+                required: "Você deve selecionar um imóvel"
+            },
             dataInicial: {
                 required: "A data inicial é obrigatória", compararData: "A data inicial deve ser menor que a final"
             },
