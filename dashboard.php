@@ -18,37 +18,44 @@ $paginas = array(
     'imoveis' => array(
         'titulo' => "Imóveis",
         'arquivo' => "imoveis.php",
-        'icon' => "home"
+        'icon' => "home",
+        'frase' => 'Gerencie seus imóveis'
     ),
     'imovel-editar' => array(
         'titulo' => "Editar imóvel",
         'arquivo' => "imovel-editar.php",
-        'icon' => "home"
+        'icon' => "home",
+        'frase' => 'Edite seu imóvel'
     ),
     'intermediadores' => array(
         'titulo' => "Intermediadores",
         'arquivo' => "intermediadores.php",
-        'icon' => "users"
+        'icon' => "users",
+        'frase' => 'Gerencie seus intermediadores'
     ),
     'intermediador-editar' => array(
         'titulo' => "Editar intermediador",
         'arquivo' => "intermediador-editar.php",
-        'icon' => "users"
+        'icon' => "users",
+        'frase' => 'Edite seu intermediador'
     ),
     'reservas' => array(
         'titulo' => "Reservas",
         'arquivo' => "reservas.php",
-        'icon' => "calendar"
+        'icon' => "calendar",
+        'frase' => 'Gerencie suas reservas'
     ),
     'reserva-editar' => array(
         'titulo' => "Editar reserva",
         'arquivo' => "reserva-editar.php",
-        'icon' => "calendar"
+        'icon' => "calendar",
+        'frase' => 'Edite sua reserva'
     ),
     'criar-contrato' => array(
-        'titulo' => "Criar contrato",
+        'titulo' => "Contrato",
         'arquivo' => "criar-contrato.php",
-        'icon' => "calendar"
+        'icon' => "calendar",
+        'frase' => 'Crie um contrato'
     )
 );
 
@@ -155,7 +162,7 @@ $selecionada = isset($paginas[$pagina]) ? $paginas[$pagina] : $paginas['reservas
     <div class="app-title">
         <div>
             <h1><i class="fa fa-<?php echo $selecionada['icon']; ?>"></i> <?php echo $selecionada['titulo']; ?></h1>
-            <p>Gerencie suas reservas</p>
+            <p><?php echo $selecionada['frase']; ?></p>
         </div>
     </div>
     <div class="row">
