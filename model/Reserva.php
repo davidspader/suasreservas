@@ -213,6 +213,30 @@ class Reserva extends ConexaoDB{
         }
         return $reservas;
     }
+
+    public static function listarReservasAntigas($idUsuario,$idImovel){
+        $pdo = new PDO(ConexaoDB::getConexaoStatic());
+        $sql = "SELECT imovel.identificacao,reserva.id_intermediador,reserva.id, reserva.data_inicial, reserva.data_final,reserva.porcentagem_intermediador,reserva.preco_diaria,reserva.taxa_limpeza,reserva.desconto,reserva.locatario,reserva.total_depositado
+                FROM reserva 
+                INNER JOIN imovel ON(reserva.id_imovel = imovel.id)
+                where reserva.id_usuario = :id_usuario and imovel.id = :id_imovel and reserva.data_final < now()
+                order by reserva.data_inicial;";
+        $select = $pdo->prepare($sql);
+        $select->bindValue(":id_usuario", $idUsuario);
+        $select->bindValue(":id_imovel", $idImovel);
+        $select->execute();
+
+        $reservas = array();
+        foreach ($select as $r) {
+            $reserva = new Reserva($r['id'], $idUsuario, $r['data_inicial'], $r['data_final'], $idImovel, $r['id_intermediador'], $r['porcentagem_intermediador'], $r['preco_diaria'], $r['taxa_limpeza'], $r['desconto'], $r['locatario'], $r['total_depositado']);
+            $reserva->identificacao = $r['identificacao'];
+            if($r['id_intermediador'] == null){
+                $reserva->nome = "-";
+            }
+            array_push($reservas, $reserva);
+        }
+        return $reservas;
+    }
     public static function listarReserva($idUsuario,$id){
         $pdo = new PDO(ConexaoDB::getConexaoStatic());
         $sql = "select * from reserva where id_usuario = :id_usuario and id = :id;";

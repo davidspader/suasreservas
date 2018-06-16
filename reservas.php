@@ -293,115 +293,133 @@ if (!isset($imoveis[0])) {
             </div>
         </div>
     </div>
+    <?php
+    if (isset($_GET['idImovel'])) {
+    $id_imovel = $_GET['idImovel'];
+    if (!Validacao::verificarInteiro($id_imovel)) {
+        header("Location: ../dashboard.php?pagina=reservas");
+        die();
+    }
+    if (isset($_GET['tipo']) && $_GET['tipo'] == "antigas"){
+        $ativa1 = "";
+        $ativa2 = "active";
+        $reservas = Reserva::listarReservasAntigas(unserialize($_SESSION['logado'])->getId(), $id_imovel);
+    }else{
+        $ativa2 = "";
+        $ativa1 = "active";
+        $reservas = Reserva::listarReservas(unserialize($_SESSION['logado'])->getId(), $id_imovel);
+    } ?>
+    <div class="bs-component">
+        <ul class="nav nav-tabs m-bot-20">
+            <li class="nav-item"><a class="nav-link <?php echo $ativa1 ?>" href="dashboard.php?pagina=reservas&idImovel=<?php echo $id_imovel; ?>">Reservas Atuais</a></li>
+            <li class="nav-item"><a class="nav-link <?php echo $ativa2 ?>" href="dashboard.php?pagina=reservas&idImovel=<?php echo $id_imovel; ?>&tipo=antigas">Reservas Antigas</a></li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade active show">
+                <div class="row">
+                        <?php if (empty($reservas)) {
+                            echo "<p class='span-title'>O imóvel não possui reservas</p>";
+                        } else {
+                            foreach ($reservas as $r) {
+                                $id = $r->getId();
+                                $qtdDias = Validacao::verificaQuantidadeDias($r->getDataInicial(), $r->getDataFinal());
+                                $valorTotal = $qtdDias * $r->getPrecoDiaria() - $r->getDesconto();
 
-    <div class="row">
-        <?php
-        if (isset($_GET['idImovel'])) {
-            $id_imovel = $_GET['idImovel'];
-            if (!Validacao::verificarInteiro($id_imovel)) {
-                header("Location: ../dashboard.php?pagina=reservas");
-                die();
-            }
-            $reservas = Reserva::listarReservas(unserialize($_SESSION['logado'])->getId(), $id_imovel);
-            if (empty($reservas)) {
-                echo "este imóvel não possui reservas";
-            } else {
-                foreach ($reservas as $r) {
-                    $id = $r->getId();
-                    $qtdDias = Validacao::verificaQuantidadeDias($r->getDataInicial(), $r->getDataFinal());
-                    $valorTotal = $qtdDias * $r->getPrecoDiaria() - $r->getDesconto();
+                                $valorIntermediador = ($valorTotal / 100) * $r->getPorcentagemIntermediador();
 
-                    $valorIntermediador = ($valorTotal / 100) * $r->getPorcentagemIntermediador();
+                                $valorParaReceber = $valorTotal + $r->getTaxaLimpeza() - $r->getTotalDepositado() - $valorIntermediador;
 
-                    $valorParaReceber = $valorTotal + $r->getTaxaLimpeza() - $r->getTotalDepositado() - $valorIntermediador;
+                                $valorLiquido = $valorTotal + $r->getTaxaLimpeza() - $valorIntermediador;
+                                ?>
+                                <div class="col-md-3 lista m-bot-20" id="<?php echo $id; ?>">
+                                    <div class="card">
 
-                    $valorLiquido = $valorTotal + $r->getTaxaLimpeza() - $valorIntermediador;
-                    ?>
-                    <div class="col-md-3 lista m-bot-20" id="<?php echo $id; ?>">
-                        <div class="card">
+                                        <div class="card-header">
 
-                            <div class="card-header">
+                                            <div class="pull-right">
+                                                <div class="btn-group">
+                                                    <form action="dashboard.php?pagina=criar-contrato" method="post">
+                                                        <input type="hidden" value="<?php echo $id; ?>" name="id">
+                                                        <input type="hidden" value="<?php echo $id_imovel; ?>" name="idImovel">
+                                                        <input type="hidden" value="<?php echo $r->getLocatario(); ?>" name="locatario">
+                                                        <button type="submit" class="btn btn-primary"><i
+                                                                    class="fa fa-lg fa-handshake"></i></button>
+                                                    </form>
+                                                    <form action="dashboard.php?pagina=reserva-editar" method="post">
+                                                        <input type="hidden" value="<?php echo $id; ?>" name="id">
+                                                        <button type="submit" class="btn btn-primary"><i
+                                                                    class="fa fa-lg fa-edit"></i></button>
+                                                    </form>
+                                                    <a class="btn btn-danger btn-apagar"
+                                                       href="control/reservaController.php?req=excluirReserva&id=<?php echo $id; ?>&id_imovel=<?php echo $id_imovel; ?>">
+                                                        <i class="fa fa-lg fa-trash"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
 
-                                <div class="pull-right">
-                                    <div class="btn-group">
-                                        <form action="dashboard.php?pagina=criar-contrato" method="post">
-                                            <input type="hidden" value="<?php echo $id; ?>" name="id">
-                                            <input type="hidden" value="<?php echo $id_imovel; ?>" name="idImovel">
-                                            <input type="hidden" value="<?php echo $r->getLocatario(); ?>" name="locatario">
-                                            <button type="submit" class="btn btn-primary"><i
-                                                        class="fa fa-lg fa-handshake"></i></button>
-                                        </form>
-                                        <form action="dashboard.php?pagina=reserva-editar" method="post">
-                                            <input type="hidden" value="<?php echo $id; ?>" name="id">
-                                            <button type="submit" class="btn btn-primary"><i
-                                                        class="fa fa-lg fa-edit"></i></button>
-                                        </form>
-                                        <a class="btn btn-danger btn-apagar"
-                                           href="control/reservaController.php?req=excluirReserva&id=<?php echo $id; ?>&id_imovel=<?php echo $id_imovel; ?>">
-                                            <i class="fa fa-lg fa-trash"></i>
-                                        </a>
+                                            <br><br><br><br>
+
+                                            <div class="row">
+                                                <div class="p-10">
+                                                    <i class="fa fa-calendar fa-2x color-verde"></i><br>
+                                                    <span class="span-title-2">De <?php echo Validacao::transformaTimestampEmData($r->getDataInicial()); ?>
+                                                        a <?php echo Validacao::transformaTimestampEmData($r->getDataFinal()); ?></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="card-body informacoes" id="toggle-<?php echo $id; ?>">
+                                            <ul class="list-group">
+                                                <li class="list-group-item"><strong>DIÁRIAS:</strong> <?php echo $qtdDias; ?></li>
+                                                <li class="list-group-item">
+                                                    <strong>LOCATÁRIO:</strong> <?php echo $r->getLocatario(); ?></li>
+                                                <li class="list-group-item">
+                                                    <strong>INTERMEDIADOR:</strong> <?php if ($r->getIntermediador() == null) {
+                                                        echo $r->nome;
+                                                    } else {
+                                                        echo Reserva::buscarIntermediadorNome($r->getIntermediador());
+                                                    } ?></li>
+                                                <li class="list-group-item"><strong>VALOR
+                                                        INTERMEDIADOR:</strong>R$ <?php echo number_format($valorIntermediador, 2, ',', '.'); ?>
+                                                </li>
+                                                <li class="list-group-item"><strong>P.
+                                                        INTERMEDIADOR:</strong> <?php echo $r->getPorcentagemIntermediador(); ?>%
+                                                </li>
+                                                <li class="list-group-item"><strong>PREÇO
+                                                        DIARIA:</strong>R$ <?php echo number_format($r->getPrecoDiaria(), 2, ',', '.'); ?>
+                                                </li>
+                                                <li class="list-group-item"><strong>TAXA DE
+                                                        LIMPEZA:</strong>R$ <?php echo number_format($r->getTaxaLimpeza(), 2, ',', '.'); ?>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>DESCONTO:</strong>R$ <?php echo number_format($r->getDesconto(), 2, ',', '.'); ?>
+                                                </li>
+                                                <li class="list-group-item"><strong>JÁ
+                                                        DEPOSITADO:</strong>R$ <?php echo number_format($r->getTotalDepositado(), 2, ',', '.'); ?>
+                                                </li>
+                                                <li class="list-group-item"><strong>A
+                                                        RECEBER:</strong>R$ <?php echo number_format($valorParaReceber, 2, ',', '.'); ?>
+                                                </li>
+                                                <li class="list-group-item"><strong>VALOR
+                                                        LÍQUIDO:</strong>R$ <?php echo number_format($valorLiquido, 2, ',', '.'); ?>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="card-footer text-right">
+                                            <div data-id="<?php echo $id; ?>">
+                                                <a href="#<?php echo $id; ?>" class="detalhes">Mostrar mais</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-
-                                <br><br><br><br>
-
-                                <div class="row">
-                                    <div class="p-10">
-                                        <i class="fa fa-calendar fa-2x color-verde"></i><br>
-                                        <span class="span-title-2">De <?php echo Validacao::transformaTimestampEmData($r->getDataInicial()); ?>
-                                            a <?php echo Validacao::transformaTimestampEmData($r->getDataFinal()); ?></span>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="card-body informacoes" id="toggle-<?php echo $id; ?>">
-                                <ul class="list-group">
-                                    <li class="list-group-item"><strong>DIÁRIAS:</strong> <?php echo $qtdDias; ?></li>
-                                    <li class="list-group-item">
-                                        <strong>LOCATÁRIO:</strong> <?php echo $r->getLocatario(); ?></li>
-                                    <li class="list-group-item">
-                                        <strong>INTERMEDIADOR:</strong> <?php if ($r->getIntermediador() == null) {
-                                            echo $r->nome;
-                                        } else {
-                                            echo Reserva::buscarIntermediadorNome($r->getIntermediador());
-                                        } ?></li>
-                                    <li class="list-group-item"><strong>VALOR
-                                            INTERMEDIADOR:</strong>R$ <?php echo number_format($valorIntermediador, 2, ',', '.'); ?>
-                                    </li>
-                                    <li class="list-group-item"><strong>P.
-                                            INTERMEDIADOR:</strong> <?php echo $r->getPorcentagemIntermediador(); ?>%
-                                    </li>
-                                    <li class="list-group-item"><strong>PREÇO
-                                            DIARIA:</strong>R$ <?php echo number_format($r->getPrecoDiaria(), 2, ',', '.'); ?>
-                                    </li>
-                                    <li class="list-group-item"><strong>TAXA DE
-                                            LIMPEZA:</strong>R$ <?php echo number_format($r->getTaxaLimpeza(), 2, ',', '.'); ?>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <strong>DESCONTO:</strong>R$ <?php echo number_format($r->getDesconto(), 2, ',', '.'); ?>
-                                    </li>
-                                    <li class="list-group-item"><strong>JÁ
-                                            DEPOSITADO:</strong>R$ <?php echo number_format($r->getTotalDepositado(), 2, ',', '.'); ?>
-                                    </li>
-                                    <li class="list-group-item"><strong>A
-                                            RECEBER:</strong>R$ <?php echo number_format($valorParaReceber, 2, ',', '.'); ?>
-                                    </li>
-                                    <li class="list-group-item"><strong>VALOR
-                                            LÍQUIDO:</strong>R$ <?php echo number_format($valorLiquido, 2, ',', '.'); ?>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="card-footer text-right">
-                                <div data-id="<?php echo $id; ?>">
-                                    <a href="#<?php echo $id; ?>" class="detalhes">Mostrar mais</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <?php }
-            }
-        } ?>
-    </div>
+                            <?php }
+                        }
+                    } ?>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="antigas">
+                <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
+            </div>
 </div>
 <script src="js/js.page-reservas.js"></script>
 <script src="js/validacao-formulario/js.validar-formulario-reserva.js"></script>
