@@ -8,7 +8,7 @@ $locatario = $_SESSION['contrato'][1];
 $intermediador = $_SESSION['contrato'][2];
 $imovel = $_SESSION['contrato'][3];
 $reserva = $_SESSION['contrato'][4];
-//unset($_SESSION['contrato']);
+unset($_SESSION['contrato']);
 ?>
 <!DOCTYPE html>
 <html>
