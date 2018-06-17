@@ -1,15 +1,6 @@
 body {
   background: rgb(204,204,204); 
 }
-
-.m-20{
-    margin: 20px;
-}
-
-mt-30{
-    margin-top: 30px;
-}
-
 .page {
   background: white;
   display: block;
@@ -18,11 +9,24 @@ mt-30{
   box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
 }
 .page {  
-  width: 21cm;
-  height: 29.7cm; 
+  width: 210mm;
+  height: 290mm;
 }
 .centered {
     margin: 0 auto !important;
     float: none !important;
 }
 
+h1{
+    padding: 20px;
+}
+p{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.m-20{
+    margin-top: 20px;
+}

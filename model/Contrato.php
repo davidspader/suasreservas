@@ -119,8 +119,8 @@ class Contrato {
     }
 
     public static function montarStringReserva(Reserva $r,$valorTotal,$qtdDias) {
-        $reserva = "A locação inicia em ".Validacao::transformaTimestampEmData($r->getDataInicial())." com término em ".Validacao::transformaTimestampEmData($r->getDataFinal()).",com o total de $qtdDias dias, pelo preço diário de R$ ".number_format($r->getPrecoDiaria(), 2, ',', '.').", taxa limpeza de
-                R$ ".number_format($r->getTaxaLimpeza(), 2, ',', '.')." e com desconto de R$ ".number_format($r->getDesconto(), 2, ',', '.').".<br> <strong>Formando o valor total de R$ $valorTotal.</strong>";
+        $reserva = "<p>A locação inicia em ".Validacao::transformaTimestampEmData($r->getDataInicial())." as 14:00 horas com término em ".Validacao::transformaTimestampEmData($r->getDataFinal())." as 10:00 horas,com o total de $qtdDias diárias, pelo preço diário de R$ ".number_format($r->getPrecoDiaria(), 2, ',', '.').", taxa limpeza de
+                R$ ".number_format($r->getTaxaLimpeza(), 2, ',', '.')." e com desconto de R$ ".number_format($r->getDesconto(), 2, ',', '.').".<br><strong>Formando o valor total de R$ $valorTotal.</strong></p>";
     
         return $reserva;
     }
