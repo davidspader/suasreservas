@@ -87,7 +87,7 @@ $(document).ready(function () {
 
     $(".data").blur(function(){
         if(!isNaN(qtdDiarias())){
-            $("#qtdDiarias").attr("placeholder", "Quantidade de diárias: "+qtdDiarias() +" dias");
+            $("#qtdDiarias").attr("placeholder", qtdDiarias());
         }
     });
 
@@ -107,9 +107,9 @@ $(document).ready(function () {
 
         valorTotal = valorTotal+taxaLimpeza-valorIntermediador;
         if(!isNaN(qtdDiaria)){
-            $("#TotalReceber").attr("placeholder", "Valor a receber: "+ converteFloatMoeda(valorParaReceber));
-            $("#valorIntermediador").attr("placeholder", "Valor do intermediador: "+ converteFloatMoeda(valorIntermediador));
-            $("#total").attr("placeholder", "Valor líquido: "+ converteFloatMoeda(valorTotal));
+            $("#TotalReceber").attr("placeholder",converteFloatMoeda(valorParaReceber));
+            $("#valorIntermediador").attr("placeholder", converteFloatMoeda(valorIntermediador));
+            $("#total").attr("placeholder", converteFloatMoeda(valorTotal));
         }
     });
 });
