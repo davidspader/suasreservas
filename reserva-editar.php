@@ -17,7 +17,8 @@ $intermediadores = IntermediadorJuridico::listarIntermediador(unserialize($_SESS
     <hr>
     <!-- FORMULÁRIO DE CADASTRO -->
     <form action="control/reservaController.php" method="post" id="cadastroReserva" role="form" class="formularioReserva">
-        <input type="hidden" name="req" value="cadastrarReserva">
+        <input type="hidden" name="req" value="editarReserva">
+        <input type="hidden" name="id" value="<?php echo $_POST['id']; ?>">
         <input type="hidden" name="validacao" value="validacao">
 
         <div class="row">
