@@ -39,7 +39,7 @@ if (!isset($_SESSION['logado'])) {
                     <div class="form-group m-left-15">
                         <div class="animated-radio-button">
                             <label>
-                                <input type="radio" name="tipoIntermediador" value="2" class="radioJuridica"><span class="label-text">Pessoa júridica</span>
+                                <input type="radio" name="tipoIntermediador" value="2" class="radioJuridica"><span class="label-text">Pessoa jurídica</span>
                             </label>
                         </div>
                     </div>
