@@ -211,7 +211,7 @@ $(document).ready(function () {
     
     $.validator.addMethod("sigla", function (value) {
         sigla = value.toUpperCase();
-        var siglas = ["AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RO", "RS", "RR", "SC", "SE", "SP", "TO"];
+        var siglas = ["","AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RO", "RS", "RR", "SC", "SE", "SP", "TO"];
         for(i = 0; i < siglas.length; i++){
             if(sigla == siglas[i]){
                 return true;
