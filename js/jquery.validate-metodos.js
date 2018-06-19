@@ -197,7 +197,6 @@ $(document).ready(function () {
         if(value == "(__) _____-____" ||value == "(__) ____-____" ||value == ""){
             return true;
         }
-        alert(value);
         var regex = "^\\([1-9]{2}\\) [2-9][0-9]{3,4}\\-[0-9]{4}$";
         var regexp = new RegExp(regex);
         var teste = regexp.exec(value);
