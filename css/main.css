@@ -14083,7 +14083,7 @@ be a descendant of the grid when it is being dragged.
 
 .material-half-bg {
   height: 100vh;
-  background-color: #e7e7e7;
+  background-color: #009688;
   position: fixed;
   top: 0;
   left: 0;
@@ -14448,7 +14448,7 @@ be a descendant of the grid when it is being dragged.
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  min-height: 100vh;
+  min-height: 90vh;
 }
 
 .login-content .logo {
@@ -14527,7 +14527,7 @@ be a descendant of the grid when it is being dragged.
 }
 
 .login-content .login-box.flipped {
-  min-height: 300px;
+  min-height: 750px;
 }
 
 .login-content .login-box.flipped .login-form {

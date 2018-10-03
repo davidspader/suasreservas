@@ -17,9 +17,6 @@
     <div class="cover"></div>
 </section>
 <section class="login-content">
-    <div class="logo">
-        <img src="css/imagens/icones/calendar.png">
-    </div>
     <div class="login-box">
         <form class="form formularioLogin login-form" role="form" method="post" action="control/loginController.php" id="formularioLogin2">
             <input type="hidden" name="req" value="entrar">
@@ -46,17 +43,33 @@
                 <button class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>ACESSAR O SISTEMA</button>
             </div>
         </form>
-        <form class="forget-form" action="index.html">
-            <h3 class="login-head"><i class="fa fa-lg fa-fw fa-lock"></i>Forgot Password?</h3>
+        <form class="forget-form form formularioCadastro" role="form" method="post" action="control/cadastroController.php" id="formularioCadastro2">
+            <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Cadastre-se</h3>
             <div class="form-group">
-                <label class="control-label">EMAIL</label>
-                <input class="form-control" type="text" placeholder="Email">
+                <label class="control-label">*Nome</label>
+                <input class="form-control" placeholder="Nome" name="nomeCadastro" type="text" autofocus required>
+            </div>
+            <div class="form-group">
+                <label class="control-label">*E-mail</label>
+                <input class="form-control" placeholder="E-mail" name="emailCadastro" id="emailCadastro" type="text" required>
+            </div>
+            <div class="form-group">
+                <label class="control-label">*CPF</label>
+                <input class="form-control cpf" placeholder="CPF" name="cpfCadastro" id="cpfCadastro" type="text" required>
+            </div>
+            <div class="form-group">
+                <label class="control-label">*Senha</label>
+                <input class="form-control" placeholder="*Senha" name="senhaCadastro" type="password" required>
+            </div>
+            <div class="form-group">
+                <label class="control-label">*Telefone celular</label>
+                <input class="form-control celular" placeholder="*Telefone celular" name="telefoneCadastro" type="text" id="telefoneCadastro" required>
             </div>
             <div class="form-group btn-container">
-                <button class="btn btn-primary btn-block"><i class="fa fa-unlock fa-lg fa-fw"></i>RESET</button>
+                <button class="btn btn-primary btn-block"><i class="fa fa-unlock fa-lg fa-fw"></i>CADASTRAR</button>
             </div>
             <div class="form-group mt-3">
-                <p class="semibold-text mb-0"><a href="#" data-toggle="flip"><i class="fa fa-angle-left fa-fw"></i> Back to Login</a></p>
+                <p class="semibold-text mb-0"><a href="#" data-toggle="flip"><i class="fa fa-angle-left fa-fw"></i>Acessar o sistema</a></p>
             </div>
         </form>
     </div>
@@ -72,6 +85,7 @@
 <script src="bootstrap-jquery/jquery/jquery.validate.js"></script>
 <script src="js/jquery.validate-metodos.js"></script>
 <script src="js/validacao-formulario/js.validar-formulario-login.js"></script>
+<script src="js/validacao-formulario/js.validar-formulario-cadastro.js"></script>
 <script type="text/javascript">
     // Login Page Flipbox control
     $('.login-content [data-toggle="flip"]').click(function() {
