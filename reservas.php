@@ -3,7 +3,7 @@ $imoveis = Apartamento::listarImovel(unserialize($_SESSION['logado'])->getId());
 $intermediadores = IntermediadorJuridico::listarIntermediador(unserialize($_SESSION['logado'])->getId());
 if (!isset($imoveis[0])) {
     $_SESSION['feedback'] = "Bem vindo, cadastre um imóvel para começar a utilizar o sistema";
-    header("Location: dashboard.php?pagina=imoveis");
+    echo '<script>window.location.href = "dashboard.php?pagina=imoveis";</script>';
 }
 ?>
 <div class="painel-formulario card panel-20">
