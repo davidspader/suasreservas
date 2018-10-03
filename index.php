@@ -18,11 +18,16 @@ $paginas = array(
     'login' => array(
         'titulo' => "Login",
         'arquivo' => "login.php"
+    ),
+    'login-cadastro' => array(
+        'titulo' => "Login e Cadastro",
+        'arquivo' => "login-cadastro.php"
     )
 );
+
 $selecionada = isset($paginas[$pagina]) ? $paginas[$pagina] : $paginas['home'];
 
-if ($selecionada['arquivo'] != "home.php") {
+if ($selecionada['arquivo'] != "home.php" && $selecionada['arquivo'] != "login-cadastro.php") {
     ?>
 
     <!DOCTYPE html>
