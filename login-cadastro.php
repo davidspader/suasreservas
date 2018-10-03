@@ -4,12 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="css/imagens/icones/icone-titulo.png" type="image/x-icon">
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Login - Vali Admin</title>
+    <title>Login e Cadastro</title>
 </head>
 <body>
 <section class="material-half-bg">
@@ -17,27 +18,28 @@
 </section>
 <section class="login-content">
     <div class="logo">
-        <h1>Vali</h1>
+        <img src="css/imagens/icones/calendar.png">
     </div>
     <div class="login-box">
-        <form class="login-form" action="index.html">
-            <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>SIGN IN</h3>
+        <form class="form formularioLogin login-form" role="form" method="post" action="control/loginController.php" id="formularioLogin2">
+            <input type="hidden" name="req" value="entrar">
+            <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Acesse o sistema</h3>
             <div class="form-group">
-                <label class="control-label">USERNAME</label>
-                <input class="form-control" type="text" placeholder="Email" autofocus>
+                <label class="control-label">E-mail</label>
+                <input class="form-control" type="text" placeholder="E-mail" name="emailLogin" autofocus>
             </div>
             <div class="form-group">
-                <label class="control-label">PASSWORD</label>
-                <input class="form-control" type="password" placeholder="Password">
+                <label class="control-label">Senha</label>
+                <input class="form-control" type="password" placeholder="Senha" name="senhaLogin">
             </div>
             <div class="form-group">
                 <div class="utility">
                     <div class="animated-checkbox">
                         <label>
-                            <input type="checkbox"><span class="label-text">Stay Signed in</span>
+                            <input type="checkbox"><span class="label-text">Manter conectado</span>
                         </label>
                     </div>
-                    <p class="semibold-text mb-2"><a href="#" data-toggle="flip">Forgot Password ?</a></p>
+                    <p class="semibold-text mb-2"><a href="#" data-toggle="flip">Cadastre-se</a></p>
                 </div>
             </div>
             <div class="form-group btn-container">
@@ -66,6 +68,10 @@
 <script src="js/main.js"></script>
 <!-- The javascript plugin to display page loading on top-->
 <script src="js/plugins/pace.min.js"></script>
+<script src="bootstrap-jquery/jquery/jquery.maskedinput.js"></script>
+<script src="bootstrap-jquery/jquery/jquery.validate.js"></script>
+<script src="js/jquery.validate-metodos.js"></script>
+<script src="js/validacao-formulario/js.validar-formulario-login.js"></script>
 <script type="text/javascript">
     // Login Page Flipbox control
     $('.login-content [data-toggle="flip"]').click(function() {
