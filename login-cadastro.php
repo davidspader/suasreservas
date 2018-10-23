@@ -1,3 +1,14 @@
+<?php
+if(isset($_SESSION['logado'])){
+    header("Location: index.php");
+}
+if(isset($_GET['type'])){
+    $cadastro = "flipped";
+    echo "<input type='hidden' id='verifica' value='$cadastro'>";
+}else{
+    echo "<input type='hidden' id='verifica' value=''>";
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +28,7 @@
     <div class="cover"></div>
 </section>
 <section class="login-content">
-    <div class="login-box">
+    <div class="login-box" id="login-box">
         <form class="form formularioLogin login-form" role="form" method="post" action="control/loginController.php" id="formularioLogin2">
             <input type="hidden" name="req" value="entrar">
             <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Acesse o sistema</h3>
@@ -86,6 +97,7 @@
 <script src="js/jquery.validate-metodos.js"></script>
 <script src="js/validacao-formulario/js.validar-formulario-login.js"></script>
 <script src="js/validacao-formulario/js.validar-formulario-cadastro.js"></script>
+<script src="js/js.page-login.js"></script>
 <script type="text/javascript">
     // Login Page Flipbox control
     $('.login-content [data-toggle="flip"]').click(function() {

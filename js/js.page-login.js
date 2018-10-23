@@ -1,18 +1,5 @@
 $(document).ready(function () {
-    if ($('#verifica').val() == 1) {
-        $("#cadastrar").hide();
-        $("#login").show();
-    }else{
-        $("#login").hide();
-        $("#cadastrar").show();
+    if ($('#verifica').val() == "flipped") {
+        $('#login-box').addClass("flipped");
     }
-    
-    $("#loginHide").click(function () {
-        $("#login").hide();
-        $("#cadastrar").show();
-    });
-    $("#loginShow").click(function () {
-        $("#login").show();
-        $("#cadastrar").hide();
-    });
 });
