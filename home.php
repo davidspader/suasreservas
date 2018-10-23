@@ -55,8 +55,8 @@
                 <a class="navbar-brand" href="index.php"><img src="css/imagens/logo/logo-verde.png"</span></a>
                 <div class="collapse navbar-collapse" id="navbarCollapse1">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"> <a class="nav-link" href="index.php?pagina=login">Cadastre-se</a> </li>
-                        <li class="nav-item"> <a class="nav-link" href="index.php?pagina=login&login=1">Login</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="index.php?pagina=login-cadastro&type=cadastro">Cadastre-se</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="index.php?pagina=login-cadastro">Acesse o sistema</a> </li>
                     </ul>
                 </div>
             </div>
