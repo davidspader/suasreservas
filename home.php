@@ -82,8 +82,8 @@
             <!--Logo/-->
             <nav class="collapse navbar-collapse" id="primary-menu">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" class="link-menu">Cadastre-se</a></li>
-                    <li><a href="#" class="link-menu">Acesse o sistema</a></li>
+                    <li><a href="index.php?pagina=login-cadastro&type=cadastro" class="link-menu">Cadastre-se</a></li>
+                    <li><a href="index.php?pagina=login-cadastro" class="link-menu">Acesse o sistema</a></li>
                 </ul>
             </nav>
         </div>
@@ -100,7 +100,7 @@
                 <div class="col-xs-12 col-md-7 header-text">
                     <h2>CONTROLE SUAS RESERVAS!</h2>
                     <p>O Suas Reservas é um sistema de gerenciamento de reservas em aluguéis de temporada onde você terá todo o controle sobre suas locações.</p>
-                    <a href="#" class="button white">CADASTRE-SE AGORA</a>
+                    <a href="index.php?pagina=login-cadastro&type=cadastro" class="button white">CADASTRE-SE AGORA</a>
                 </div>
                 <div class="hidden-xs hidden-sm col-md-5 text-right">
                     <div class="screen-box screen-slider">
@@ -194,7 +194,7 @@
                             <li>Contratos ilimitados</li>
                         </ul>
                         <hr>
-                        <a href="#" class="button">Cadastre-se agora</a>
+                        <a href="index.php?pagina=login-cadastro&type=cadastro" class="button">Cadastre-se agora</a>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-4">
@@ -209,7 +209,7 @@
                             <li>Contratos ilimitados</li>
                         </ul>
                         <hr>
-                        <a href="#" class="button">Cadastre-se agora</a>
+                        <a href="index.php?pagina=login-cadastro&type=cadastro" class="button">Cadastre-se agora</a>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-4">
@@ -224,7 +224,7 @@
                             <li>Contratos ilimitados</li>
                         </ul>
                         <hr>
-                        <a href="#" class="button">Cadastre-se agora</a>
+                        <a href="index.php?pagina=login-cadastro&type=cadastro" class="button">Cadastre-se agora</a>
                     </div>
                 </div>
             </div>
