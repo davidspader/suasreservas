@@ -221,11 +221,12 @@ if (!isset($_SESSION['logado'])) {
                             <input type="hidden" value="<?php echo $id; ?>" name="id">
                             <input type="hidden" value="<?php echo $tipo; ?>" name="tipo_imovel">
                             <div class="btn-group">
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-lg fa-edit"></i></button>
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-lg fa-edit"
+                                                                                 title="Editar"></i></button>
                         </form>
                         <a class="btn btn-danger btn-apagar"
                            href="control/imovelController.php?req=excluir&id=<?php echo $id; ?>">
-                            <i class="fa fa-lg fa-trash"></i>
+                            <i class="fa fa-lg fa-trash" title="Excluir"></i>
                         </a>
                     </div>
                 </div>
@@ -235,7 +236,7 @@ if (!isset($_SESSION['logado'])) {
                 <div class="row">
                     <div class="p-10">
                         <i class="fa fa-<?php echo $icon; ?> fa-2x color-verde"></i><br>
-                        <span class="span-title-2"> <?php echo $i->getIdentificacao(); ?></span>
+                        <a href="dashboard.php?pagina=reservas&idImovel=<?php echo $id; ?>"> <span class="span-title-2"> <?php echo $i->getIdentificacao(); ?></span></a>
                     </div>
                 </div>
 
@@ -249,7 +250,8 @@ if (!isset($_SESSION['logado'])) {
                     <li class="list-group-item"><strong>RUA:</strong> <?php echo $i->getLogradouro(); ?></li>
                     <li class="list-group-item"><strong>NÚMERO:</strong> <?php echo $i->getNumero(); ?></li>
                     <?php if ($tipo == 2) { ?>
-                        <li class="list-group-item"><strong>EDIFICIO:</strong> <?php echo $i->getEdificio(); ?> </li>
+                        <li class="list-group-item"><strong>EDIFICIO:</strong> <?php echo $i->getEdificio(); ?>
+                        </li>
                         <li class="list-group-item"><strong>BLOCO:</strong> <?php echo $i->getBloco(); ?> </li>
                         <li class="list-group-item"><strong>NÚMERO DO
                                 APARTAMENTO:</strong> <?php echo $i->getNumeroAp(); ?> </li>

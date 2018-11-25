@@ -165,10 +165,10 @@ $intermediadores = IntermediadorJuridico::listarIntermediador(unserialize($_SESS
                         <input type="hidden" value="<?php echo $id;?>" name="id">
                         <input type="hidden" value="<?php echo $tipo;?>" name="tipo_intermediador">
                         <div class="btn-group">
-                            <button type="submit" class="btn btn-primary"> <i class="fa fa-lg fa-edit"></i> </button>
+                            <button type="submit" class="btn btn-primary"> <i class="fa fa-lg fa-edit" title="Editar"></i> </button>
                     </form>
                     <a class="btn btn-danger btn-apagar" href="control/intermediadorController.php?req=excluir&id=<?php echo $id;?>"">
-                        <i class="fa fa-lg fa-trash"></i>
+                        <i class="fa fa-lg fa-trash" title="Excluir"></i>
                     </a>
                 </div>
             </div>

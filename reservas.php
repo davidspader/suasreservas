@@ -343,16 +343,16 @@ if (!isset($imoveis[0])) {
                                                         <input type="hidden" value="<?php echo $id_imovel; ?>" name="idImovel">
                                                         <input type="hidden" value="<?php echo $r->getLocatario(); ?>" name="locatario">
                                                         <button type="submit" class="btn btn-primary"><i
-                                                                    class="fa fa-lg fa-handshake"></i></button>
+                                                                    class="fa fa-lg fa-handshake" title="Criar contrato"></i></button>
                                                     </form>
                                                     <form action="dashboard.php?pagina=reserva-editar" method="post">
                                                         <input type="hidden" value="<?php echo $id; ?>" name="id">
                                                         <button type="submit" class="btn btn-primary"><i
-                                                                    class="fa fa-lg fa-edit"></i></button>
+                                                                    class="fa fa-lg fa-edit" title="Editar"></i></button>
                                                     </form>
                                                     <a class="btn btn-danger btn-apagar"
                                                        href="control/reservaController.php?req=excluirReserva&id=<?php echo $id; ?>&id_imovel=<?php echo $id_imovel; ?>">
-                                                        <i class="fa fa-lg fa-trash"></i>
+                                                        <i class="fa fa-lg fa-trash" title="Excluir"></i>
                                                     </a>
                                                 </div>
                                             </div>
