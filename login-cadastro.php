@@ -121,6 +121,7 @@ if(isset($_GET['type'])){
 <script src="js/validacao-formulario/js.validar-formulario-login.js"></script>
 <script src="js/validacao-formulario/js.validar-formulario-cadastro.js"></script>
 <script src="js/js.page-login.js"></script>
+<script src="js/js.mascaras.js"></script>
 <script type="text/javascript">
     // Login Page Flipbox control
     $('.login-content [data-toggle="flip"]').click(function() {
