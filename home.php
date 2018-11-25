@@ -350,6 +350,7 @@
     <script src="landing-page/js/wow.min.js"></script>
     <!--Main-active-JS-->
     <script src="landing-page/js/main.js"></script>
+    <script src="js/facebook-widget.js"></script>
 
 </body>
 
