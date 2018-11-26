@@ -273,7 +273,7 @@
         </div>
     </section>
 
-    <footer class="footer-area relative sky-bg" id="contact-page">
+    <footer class="footer-area relative sky-bg" id="contato">
         <div class="absolute footer-bg"></div>
         <div class="footer-top">
             <div class="container">
@@ -298,13 +298,21 @@
                         </address>
                     </div>
                     <div class="col-xs-12 col-md-8">
-                        <form action="process.php" id="contact-form" method="post" class="contact-form">
-                            <div class="form-double">
-                                <input type="text" id="form-name" name="form-name" placeholder="Digite seu nome" class="form-control" required="required">
-                                <input type="email" id="form-email" name="form-email" class="form-control" placeholder="Digite seu e-mail" required="required">
+                        <?php if (isset($_SESSION['feedback'])) { ?>
+
+                            <div class="alert alert-success alert-dismissable">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong><?php echo $_SESSION['feedback']; ?></strong>
                             </div>
-                            <input type="text" id="form-subject" name="form-subject" class="form-control" placeholder="Digite o assunto do contato">
-                            <textarea name="message" id="form-message" name="form-message" rows="5" class="form-control" placeholder="Digite a sua mensagem" required="required"></textarea>
+                        <?php }
+                        unset($_SESSION['feedback']); ?>
+                        <form action="control/contatoController.php" id="contact-page" method="post" class="contact-form">
+                            <div class="form-double">
+                                <input type="text" id="form-name" name="nome" placeholder="Digite seu nome" class="form-control" required="required">
+                                <input type="email" id="form-email" name="email" class="form-control" placeholder="Digite seu e-mail" required="required">
+                            </div>
+                            <input type="text" id="form-subject" name="assunto" class="form-control" placeholder="Digite o assunto do contato">
+                            <textarea id="form-message" name="mensagem" rows="5" class="form-control" placeholder="Digite a sua mensagem" required="required"></textarea>
                             <button type="sibmit" class="button">Enviar</button>
                         </form>
                     </div>
